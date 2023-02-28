@@ -3,7 +3,7 @@ Effort Stack Market
 </h1>
 This is a project to understand how React Hooks works making a ecommerce
 
-### Demo: https://pokedux-es.netlify.app
+### Demo: 
 --------
 <h3 align="center">
 🤖 Guía Rápida
