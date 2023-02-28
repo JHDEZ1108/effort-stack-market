@@ -16,7 +16,7 @@ This is a project to understand how React Hooks works making a ecommerce
 
     ```sh
     git clone git@github.com:JHDEZ1108/effort-stack-market.git
-    cd pokeRedux
+    cd effort-stack-market
     ```
     
 2.  **Install dependencies.**
