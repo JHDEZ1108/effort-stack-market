@@ -11,12 +11,12 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.tsx'],
-    alias:{
+    alias: {
       '@components': path.resolve(__dirname, 'src/components'),
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
-      '@services': path.resolve(__dirname, 'src/services/')
-    }
+      '@services': path.resolve(__dirname, 'src/services/'),
+    },
   },
   mode: 'development',
   module: {
@@ -52,7 +52,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: { name: 'assets/[hash].[ext]' },
-          }
+          },
         ],
       },
     ],
@@ -62,7 +62,7 @@ module.exports = {
       favicon: './public/Logo_Final.ico',
       template: './public/index.html',
       filename: './index.html',
-      manifest: './public/manifest.json'
+      manifest: './public/manifest.json',
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
@@ -74,7 +74,7 @@ module.exports = {
     },
     compress: true,
     historyApiFallback: true,
-    open:true,
+    open: true,
     port: 3007,
   },
 };
