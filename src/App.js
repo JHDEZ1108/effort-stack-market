@@ -1,14 +1,17 @@
+import React from "react";
+import { Grid, Box, Typography } from "@mui/material";
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hola Mundo
-        </p>
-      </header>
-    </div>
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        <Box sx={{ p: 2, bgcolor: "#cfe8fc" }}>
+          <Typography variant="h6" align="center">
+            Effort Stack Market
+          </Typography>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 
