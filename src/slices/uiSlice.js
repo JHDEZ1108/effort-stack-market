@@ -1,8 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+const storedMode = localStorage.getItem("mode");
 const initialState = {
-  mode: "light",
+  // eslint-disable-next-line no-unneeded-ternary
+  mode: storedMode ? storedMode : "light",
   error: null,
   isLoading: false
 };
@@ -13,6 +15,7 @@ export const uiSlice = createSlice({
   reducers: {
     setMode: (state) => {
       state.mode = state.mode === "light" ? "dark" : "light";
+      localStorage.setItem("mode", state.mode); // Guardar el modo actual en el almacenamiento local
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
