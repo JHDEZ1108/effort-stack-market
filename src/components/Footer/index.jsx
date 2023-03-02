@@ -15,15 +15,7 @@ function Footer() {
   const twitterColor = theme.palette.socialMedia.twitterColor;
   const linkedInColor = theme.palette.socialMedia.linkedInColor;
   const gitHubColor = theme.palette.socialMedia.gitHubColor;
-  const defaultB = theme.palette.background.default;
-  const mode = theme.palette.mode;
-  let boxShadowColor;
-  
-  if (mode === 'light') {
-    boxShadowColor = '#BFBFBF';
-  } else {
-    boxShadowColor = '#3F3F3F';
-  }
+  const defaultB = theme.palette.background.aux;
   
   const urlList = [
     {
@@ -49,32 +41,26 @@ function Footer() {
   ];
   
   return (
-    <footer  sx={{
-      boxShadow: `0px 0px 10px ${boxShadowColor}`,
-      backgroundColor: defaultB, 
-      width:"100%", 
-      mb:"3rem"
-    }}>
-      <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{ p: 1 }} >
-        {urlList.map((url) => (
-          <Grid item key={url.name}>
-            <Link href={url.href} target="_blank" rel="noreferrer" underline="none">
-              <IconButton sx={{ transition: 'transform 250ms', '&:hover': { transform: 'scale(1.5)' } }}>
-                {url.icon}
-              </IconButton>
-            </Link>
-          </Grid>
-        ))}
-        <Grid item>
-          <Typography variant="body1" sx={{ fontSize: '0.8rem', transition: 'color 500ms' }}>
-            Made by{' '}
-            <Link href="https://github.com/JHDEZ1108" target="_blank" rel="noopener noreferrer" underline="none" sx={{ color: 'blue.600', textDecorationOffset: '2px', transition: 'color 500ms', '&:hover': { color: 'blue.400' } }}>
-              Josué Hernández
-            </Link>
-          </Typography>
+    <Grid container justifyContent="center" alignItems="center" spacing={2} 
+      sx={{ p: 2, mt: 3, backgroundColor: defaultB, boxShadow: `0px 0px 2px #fae6af`, }} >
+      {urlList.map((url) => (
+        <Grid item key={url.name}>
+          <Link href={url.href} target="_blank" rel="noreferrer" underline="none">
+            <IconButton sx={{ transition: 'transform 250ms', '&:hover': { transform: 'scale(1.5)' } }}>
+              {url.icon}
+            </IconButton>
+          </Link>
         </Grid>
+      ))}
+      <Grid item>
+        <Typography variant="body1" sx={{ fontSize: '0.8rem', transition: 'color 500ms' }}>
+          Made by{' '}
+          <Link href="https://github.com/JHDEZ1108" target="_blank" rel="noopener noreferrer" underline="none" sx={{ color: 'blue.600', textDecorationOffset: '2px', transition: 'color 500ms', '&:hover': { color: 'blue.400' } }}>
+            Josué Hernández
+          </Link>
+        </Typography>
       </Grid>
-    </footer>
+    </Grid>
   );
 }
 

@@ -35,8 +35,8 @@ export const colorTokens = {
   },
   socialMedia:{
     50: "#dc2626",
-    100: "#2563eb",
-    200: "#2563eb",
+    100: "#336ff2",
+    200: "#57a5f2",
     300: "#3cab91",
   }
 };
