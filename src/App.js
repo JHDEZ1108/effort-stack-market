@@ -1,17 +1,21 @@
-import React from 'react';
-import { Grid, Box, Typography } from '@mui/material';
+/* eslint-disable import/extensions */
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
+import { themeSettings } from './theme/theme.js';
+
+import { Home } from './containers/Home';
 
 function App() {
+  const mode = useSelector((state) => state.ui.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={12}>
-        <Box sx={{ p: 2, bgcolor: '#cfe8fc' }}>
-          <Typography variant="h6" align="center">
-            Effort Stack Market
-          </Typography>
-        </Box>
-      </Grid>
-    </Grid>
+    <ThemeProvider theme={theme}> 
+      <CssBaseline />
+      <Home />
+    </ThemeProvider>
   );
 }
 

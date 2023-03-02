@@ -16,6 +16,7 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@containers': path.resolve(__dirname, 'src/containers/'),
       '@services': path.resolve(__dirname, 'src/services/'),
+
     },
   },
   mode: 'development',
