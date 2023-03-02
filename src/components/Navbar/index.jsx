@@ -10,23 +10,15 @@ function Navbar() {
   
   const theme = useTheme();
 
-  const defaultB = theme.palette.background.default;
+  const defaultB = theme.palette.background.aux;
   const primaryMain = theme.palette.primary.main;
-  const {mode} = theme.palette;
-  let boxShadowColor;
-  
-  if (mode === 'light') {
-    boxShadowColor = '#BFBFBF';
-  } else {
-    boxShadowColor = '#3F3F3F';
-  }
   
   const dispatch = useDispatch();
   
   return(
     <Box 
       sx={{
-        boxShadow: `0px 0px 10px ${boxShadowColor}`,
+        boxShadow: `0px 0px 2px #fae6af`,
         backgroundColor: defaultB, 
         width:"100%", 
         mb:"3rem"
