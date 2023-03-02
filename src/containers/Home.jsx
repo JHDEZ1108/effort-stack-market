@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 
 
 
-export function Home() {
+function Home() {
   // const loading = useSelector((state) => state.ui.isLoading, shallowEqual);
   
   return (      
@@ -18,3 +18,5 @@ export function Home() {
     </Grid>
   );
 }
+
+export default Home;
