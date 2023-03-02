@@ -6,7 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { themeSettings } from '../theme/theme.js';
 
-
+import Layout from '../components/Layout.jsx';
 import Home from '../containers/Home.jsx';
 import Checkout from '../containers/Checkout/Checkout.jsx';
 import Information from '../containers/Checkout/Information.jsx';
@@ -22,14 +22,16 @@ function App() {
     <ThemeProvider theme={theme}> 
       <CssBaseline />
       <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/checkout" element={<Checkout />} />
-          <Route exact path="/checkout/information" element={<Information />} />
-          <Route exact path="/checkout/payment" element={<Payment />} />
-          <Route exact path="/checkout/success" element={<Success />} />
-          <Route element={NotFound} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/checkout" element={<Checkout />} />
+            <Route exact path="/checkout/information" element={<Information />} />
+            <Route exact path="/checkout/payment" element={<Payment />} />
+            <Route exact path="/checkout/success" element={<Success />} />
+            <Route element={NotFound} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </ThemeProvider>
   );

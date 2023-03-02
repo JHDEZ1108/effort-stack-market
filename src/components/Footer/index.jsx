@@ -2,14 +2,14 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable import/prefer-default-export */
-
+import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Grid, Link, IconButton, Typography, useTheme } from '@mui/material';
 
-export function Footer() {
+function Footer() {
   const theme = useTheme();
   const instagramColor = theme.palette.socialMedia.instagramColor;
   const twitterColor = theme.palette.socialMedia.twitterColor;
@@ -77,3 +77,5 @@ export function Footer() {
     </footer>
   );
 }
+
+export default Footer;
