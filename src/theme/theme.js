@@ -23,9 +23,9 @@ export const colorTokens = {
     300: "#9ba9ca",
     
     // light Mode
-    400: "#006B7D",
+    400: "#f2b302",
     500: "#fad778",
-    600: "#f2b302"
+    600: "#fcdf8b"
   },
   semantic:{
     50: "#50e3a8",
