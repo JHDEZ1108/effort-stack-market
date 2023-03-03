@@ -23,7 +23,7 @@ function Navbar() {
         width:"100%", 
         mb:"3rem"
       }}>
-      <FlexBetween className="navbar">
+      <FlexBetween className="navbar" padding="1rem 6%">
         <FlexBetween gap="1.75rem">
           <IconButton>
             <SvgIcon style={{ height: '30px', width: '30px' }}>

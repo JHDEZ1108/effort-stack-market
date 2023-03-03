@@ -1,9 +1,10 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
+import Products from '../components/Products/Products';
+import initialState from '../assets/initialState';
 
 function Home() {  
   return (      
-    <h1>Home</h1>
+    <Products products={initialState.products} />
   );
 }
 
