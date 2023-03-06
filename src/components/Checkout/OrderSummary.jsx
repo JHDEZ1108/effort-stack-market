@@ -52,8 +52,8 @@ function OrderSummary({ products }){
             variant="outlined"
           >
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <Typography variant="h6" sx={{ pl: 3 }}>Order Summary</Typography>
-              <Typography variant="h6" sx={{ flex: "0 1 auto", pr: 5 }}>
+              <Typography variant="h6" sx={{ pl: 3, fontWeight: 'bold' }}>Order Summary</Typography>
+              <Typography variant="h6" sx={{ flex: "0 1 auto", pr: 5, fontWeight: 'bold' }}>
                 Quantity
               </Typography>
             </Box>
