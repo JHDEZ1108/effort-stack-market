@@ -4,19 +4,19 @@ import {
   Button,
   Card,
   Divider,
-  FormControl,
   List,
   ListItem,
   ListItemAvatar,
   ListItemSecondaryAction,
   ListItemText,
-  MenuItem,
-  Select,
   useTheme,
   TextField,
-  Typography
+  Typography,
+  IconButton
 } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import numeral from 'numeral';
+import QuantityPicker from '../QuantityPicker';
 
 function OrderSummary({ products }){
   const theme = useTheme();
@@ -25,6 +25,7 @@ function OrderSummary({ products }){
   const primaryLight = theme.palette.primary.light;
   const primaryMain = theme.palette.primary.main;
   const secondary = theme.palette.primary.aux;
+  const deleteC = theme.palette.neutral.error;
   
   return (
     <Box
@@ -50,9 +51,12 @@ function OrderSummary({ products }){
             }}
             variant="outlined"
           >
-            <Typography variant="h6">
-              Order Summary
-            </Typography>
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Typography variant="h6" sx={{ pl: 3 }}>Order Summary</Typography>
+              <Typography variant="h6" sx={{ flex: "0 1 auto", pr: 5 }}>
+                Quantity
+              </Typography>
+            </Box>
             <List sx={{ mt: 2 }}>
               {products.map((product) => (
                 <ListItem
@@ -99,21 +103,17 @@ function OrderSummary({ products }){
                         {numeral(product.price).format('00.00')}
                       </Typography>
                     )}
+                    sx={{ mr: 3}}
                   />
                   <ListItemSecondaryAction>
-                    <FormControl
-                      size="small"
-                      variant="outlined"
-                    >
-                      <Select value={2}>
-                        <MenuItem value={1}>
-                          1
-                        </MenuItem>
-                        <MenuItem value={2}>
-                          2
-                        </MenuItem>
-                      </Select>
-                    </FormControl>
+                    <QuantityPicker />
+                    <IconButton sx={{
+                      '&:hover': {
+                        color: deleteC,
+                      },
+                    }}>
+                      <DeleteIcon />
+                    </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
               ))}
