@@ -14,6 +14,7 @@ import { Formik, Form } from 'formik';
 import FormikField from '../FormikField'
 
 function ContactInformation(){
+  /* ---------- Theme configuration -----------*/
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
   const defaultB = theme.palette.background.aux;
