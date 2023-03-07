@@ -47,9 +47,9 @@ function Navbar() {
         onClick={() => dispatch(setMode())}
       >
         {theme.palette.mode === "dark" ? (
-          <DarkMode sx={{ color: primaryMain, fontSize: "25px" }} />
-          ) : (
           <LightMode sx={{ color: primaryMain, fontSize: "25px" }} />
+          ) : (
+          <DarkMode sx={{ color: primaryMain, fontSize: "25px" }} />
         )}
       </IconButton>
       </FlexBetween>

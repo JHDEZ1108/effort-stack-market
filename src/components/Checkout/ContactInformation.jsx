@@ -3,13 +3,15 @@ import {
   Box,
   Grid,
   Button,
+  Checkbox,
   useTheme,
-  Typography
+  Typography,
+  FormControlLabel
 } from '@mui/material';
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 // import { postcodeValidator } from 'postcode-validator';
-import FormikField from '../FormikField';
+import FormikField from '../FormikField'
 
 function ContactInformation(){
   const theme = useTheme();
@@ -27,9 +29,20 @@ function ContactInformation(){
     city: '',
     zipCode: ''
   }
+  /* ---------- Fake emails -----------*/
+  const emailAddresses = [
+    'test@gmail.com',
+    'test2@outlook.com',
+    'test3@yahoo.com'
+  ];
   
   /* ---------- Form validation Schemas -----------*/
   const ContactInformationSchema = Yup.object().shape({
+    email: Yup.string()
+    .lowercase()
+    .email('Must be a valid email!')
+    .notOneOf(emailAddresses, 'Email already taken!')
+    .required('You need to add an email!'),
     firstName: Yup.string()
       .min(2, 'Too short to be a name!')
       .matches(/^[\p{L}]+$/u, 'First name cannot contain numbers')
@@ -83,17 +96,66 @@ function ContactInformation(){
                     mx: 'auto',
                   }}
                 >
+                  <Box>
+                    <Grid container>
+                      <Grid item sm={6} xs={12}>
+                        <Typography
+                          sx={{ fontWeight: 'bold', mt: 3 }}
+                          variant="h4"
+                        >
+                          Contact Information
+                        </Typography>
+                      </Grid>
+                      <Grid item sm={6} xs={12}>
+                        <Typography
+                          sx={{
+                            mt: 3,
+                            textAlign: 'right'
+                          }}
+                          variant="h6"
+                        >
+                          Already have an account? Log in
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                  <Box sx={{ mt: 3 }}>
+                    <Grid
+                      container
+                      spacing={1}
+                    >
+                      <Grid
+                        item
+                        xs={12}
+                      >
+                        <FormikField
+                          fullWidth
+                          required
+                          label="E-mail"
+                          name="email"
+                          type="email"
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <FormControlLabel
+                          control={<Checkbox />}
+                          label="I want to receive Effort Stack newsletters and promotional emails to get access to the latest ES news"
+                        />
+                      </Grid>
+                    </Grid>
+                  </ Box>
                   <Box
                     sx={{
                       alignItems: 'center',
-                      display: 'flex'
+                      display: 'flex',
+                      mt: 5
                     }}
                   >
                     <Typography
-                      sx={{ ml: 2, fontWeight: 'bold' }}
-                      variant="h6"
+                      sx={{ fontWeight: 'bold' }}
+                      variant="h4"
                     >
-                      Contact Information
+                      Shipping address
                     </Typography>
                   </Box>
                   <Box sx={{ mt: 3 }}>
@@ -144,7 +206,7 @@ function ContactInformation(){
                       >
                         <FormikField
                           fullWidth
-                          label="Street Line 2 (optional)"
+                          label="Apartment, suite, etc. (optional)"
                           name="optionalAddress"
                         />
                       </Grid>
@@ -189,7 +251,7 @@ function ContactInformation(){
                       >
                         <FormikField 
                           fullWidth
-                          label="Zip"
+                          label="Zip code"
                           name="zipCode"
                         />
                       </Grid>
@@ -198,16 +260,31 @@ function ContactInformation(){
                   <Box
                     sx={{
                       display: 'flex',
-                      justifyContent: 'flex-end',
+                      width: '100%',
                       mt: 3
                     }}
                   >
                     <Button
                       type="submit"
                       variant="contained"
+                      sx={{ width: '100%', height: '50px', fontSize: '15px'}}
                       disabled={!dirty || !isValid}
                     >
-                      Submit
+                      Continue to shipping
+                    </Button>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      width: '100%',
+                      mt: 3
+                    }}
+                  >
+                    <Button
+                      variant="outlined"
+                      sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
+                    >
+                      Return to Cart
                     </Button>
                   </Box>
                 </Box>
