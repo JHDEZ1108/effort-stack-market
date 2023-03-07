@@ -1,9 +1,11 @@
 import React from "react";
+import ContactInformation from "../../components/Checkout/ContactInformation";
 
-function Information() {
+function Information() {  
+  
   return(
-    <h1>Information</h1>
+    <ContactInformation />
   );
-}
+};
 
 export default Information;
