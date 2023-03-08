@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import numeral from 'numeral';
+import { Link } from 'react-router-dom';
 import QuantityPicker from '../QuantityPicker';
 
 function OrderSummary({ products }){
@@ -200,17 +201,22 @@ function OrderSummary({ products }){
               justifyContent: 'flex-end',
               mt: 3
             }}
-            >
+          >
             <Button
-              type="submit"
+              component={Link}
+              to="/checkout/information"
               variant="contained"
               sx={{
-                fontWeight: 'bold',
+                width: '100%',
+                height: '50px',
+                fontSize: '15px',
                 backgroundColor: primaryMain,
                 transition: 'transform .2s',
+                textDecoration: 'none',
                 '&:hover': {
                   backgroundColor: primaryLight,
                   transform: 'scale(1.1)',
+                  textDecoration: 'none',
                 },
               }}
             >

@@ -11,6 +11,7 @@ import {
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 // import { postcodeValidator } from 'postcode-validator';
+import { Link } from 'react-router-dom';
 import FormikField from '../FormikField'
 
 function ContactInformation(){
@@ -260,6 +261,8 @@ function ContactInformation(){
                 }}
               >
                 <Button
+                  component={Link}
+                  to="/checkout/payment"
                   type="submit"
                   variant="contained"
                   sx={{ width: '100%', height: '50px', fontSize: '15px'}}
@@ -276,6 +279,8 @@ function ContactInformation(){
                 }}
               >
                 <Button
+                  component={Link}
+                  to="/checkout"
                   variant="outlined"
                   sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
                 >

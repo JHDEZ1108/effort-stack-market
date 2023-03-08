@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {DarkMode, LightMode} from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box, useTheme, IconButton, SvgIcon } from "@mui/material";
-
+import { Link } from 'react-router-dom';
 import { setMode } from '../../slices/uiSlice';
 import FlexBetween from '../FlexBetween';
 
@@ -25,7 +26,10 @@ function Navbar() {
       }}>
       <FlexBetween className="navbar" padding="1rem 6%">
         <FlexBetween gap="1.75rem">
-          <IconButton>
+          <IconButton
+            component={Link}
+            to="/"
+          >
             <SvgIcon style={{ height: '30px', width: '30px' }}>
               <svg
                 style={{ fill: primaryMain, cursor: 'pointer' }}
@@ -42,16 +46,25 @@ function Navbar() {
             </SvgIcon>
           </IconButton>
         </FlexBetween>
-        <IconButton
-        sx={{ fontSize: "25px" }}
-        onClick={() => dispatch(setMode())}
-      >
-        {theme.palette.mode === "dark" ? (
-          <LightMode sx={{ color: primaryMain, fontSize: "25px" }} />
-          ) : (
-          <DarkMode sx={{ color: primaryMain, fontSize: "25px" }} />
-        )}
-      </IconButton>
+        <FlexBetween gap="1.75rem">
+          <IconButton
+            sx={{ fontSize: "25px" }}
+            onClick={() => dispatch(setMode())}
+          >
+          {theme.palette.mode === "dark" ? (
+            <LightMode sx={{ color: primaryMain, fontSize: "25px" }} />
+            ) : (
+            <DarkMode sx={{ color: primaryMain, fontSize: "25px" }} />
+          )}
+          </IconButton>
+          <IconButton
+            component={Link}
+            to="/checkout"
+            sx={{ fontSize: "25px", color: primaryMain, }}
+          >
+            <ShoppingCartIcon />
+          </IconButton>
+        </FlexBetween>
       </FlexBetween>
     </Box>
   )

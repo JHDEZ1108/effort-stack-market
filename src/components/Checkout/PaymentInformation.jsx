@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import numeral from 'numeral';
 import * as Yup from 'yup';
+import { Link } from "react-router-dom";
 import { Formik, Form } from 'formik';
 import FormikField from '../FormikField';
 
@@ -280,6 +281,8 @@ function PaymentInformation({ products }) {
                   }}
                   >
                   <Button
+                    component={Link}
+                    to="/checkout/success"
                     type="submit"
                     variant="contained"
                     sx={{ width: '100%', height: '50px', fontSize: '15px'}}
@@ -296,6 +299,8 @@ function PaymentInformation({ products }) {
                   }}
                   >
                   <Button
+                    component={Link}
+                    to="/checkout/information"
                     type="submit"
                     variant="outlined"
                     sx={{ width: '100%', height: '50px', fontSize: '15px'}}
