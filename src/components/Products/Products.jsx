@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Grid } from '@mui/material';
 import Product from './Product';
+import AppContext from '../../context/AppContext';
 
-function Products({ products }) {
+function Products() {
+  const { state, addToCart } = useContext(AppContext);
+  const { products } = state;
+  
+  const handleAddToCart = () => {
+    addToCart(products);
+  };
+  
   return (
     <Grid container sx={{ p: 5 }}>
       {products.map(product => (
         <Grid item key={product.id} xs={12} md={6} lg={4} sx={{ p: 3 }}>
-          <Product product={product} />
+          <Product product={product} handleAddToCart={handleAddToCart}/>
         </Grid>
       ))}
     </Grid>

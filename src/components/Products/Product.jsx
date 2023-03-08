@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Typography, Button, useTheme, Box } from '@mui/material';
 
-function Product({ product }) {
+function Product({ product, handleAddToCart }) {
   const theme = useTheme();
   const defaultB = theme.palette.background.alt;
   const defaultA = theme.palette.background.aux;
@@ -34,6 +34,7 @@ function Product({ product }) {
             <Grid item sx={{ pt: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Button
                 variant="contained"
+                onClick={handleAddToCart}
                 sx={{
                   fontWeight: 'bold',
                   backgroundColor: primaryMain,
@@ -44,7 +45,7 @@ function Product({ product }) {
                   },
                 }}
               >
-                Comprar
+                Buy
               </Button>
             </Grid>
           </Box>

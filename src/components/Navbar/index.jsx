@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { DarkMode, LightMode } from '@mui/icons-material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Box, useTheme, IconButton, SvgIcon } from "@mui/material";
+import { Box, useTheme, IconButton, SvgIcon, Typography } from "@mui/material";
 import { Link } from 'react-router-dom';
 import { setMode } from '../../slices/uiSlice';
+import AppContext from '../../context/AppContext';
 import FlexBetween from '../FlexBetween';
 
 function Navbar() {
-  
   const theme = useTheme();
-
   const defaultB = theme.palette.background.aux;
   const primaryMain = theme.palette.primary.main;
+  
+  const { state } = useContext(AppContext);
+  const { cart } = state;
+  
+  const styles = {
+    number: {
+      position: 'absolute',
+      top: '-5px',
+      right: '-5px',
+      width: '15px',
+      height: '15px',
+      borderRadius: '50%',
+      backgroundColor: '#f44336',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '11px',
+      fontWeight: 'bold',
+      color: '#fff',
+    },
+  };
+  
   
   const dispatch = useDispatch();
   
@@ -63,6 +84,11 @@ function Navbar() {
             sx={{ fontSize: "25px", color: primaryMain, }}
           >
             <ShoppingCartIcon />
+            {cart.length > 0 && (
+              <Typography sx={styles.number}>
+                {cart.length}
+              </Typography>
+            )}
           </IconButton>
         </FlexBetween>
       </FlexBetween>
