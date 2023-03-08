@@ -75,7 +75,7 @@ function ContactInformation(){
       onSubmit={(event) => event.preventDefault()}
     >
       {({dirty, isValid}) =>(
-          <Box
+        <Box
           sx={{
             backgroundColor: defaultA,
             minHeight: '100%',
@@ -84,211 +84,204 @@ function ContactInformation(){
         >
           <Form>
             <Box
-                sx={{
-                  maxWidth: 1000,
-                  mx: 'auto',
-                }}
-              >
-                <Box
-                  sx={{
-                    backgroundColor: defaultB,
-                    maxWidth: 1000,
-                    p: 3,
-                    mx: 'auto',
-                  }}
-                >
-                  <Box>
-                    <Grid container>
-                      <Grid item sm={6} xs={12}>
-                        <Typography
-                          sx={{ fontWeight: 'bold', mt: 3 }}
-                          variant="h4"
-                        >
-                          Contact Information
-                        </Typography>
-                      </Grid>
-                      <Grid item sm={6} xs={12}>
-                        <Typography
-                          sx={{
-                            mt: 3,
-                            textAlign: 'right'
-                          }}
-                          variant="h6"
-                        >
-                          Already have an account? Log in
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  <Box sx={{ mt: 3 }}>
-                    <Grid
-                      container
-                      spacing={1}
-                    >
-                      <Grid
-                        item
-                        xs={12}
-                      >
-                        <FormikField
-                          fullWidth
-                          required
-                          label="E-mail"
-                          name="email"
-                          type="email"
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <FormControlLabel
-                          control={<Checkbox />}
-                          label="I want to receive Effort Stack newsletters and promotional emails to get access to the latest ES news"
-                        />
-                      </Grid>
-                    </Grid>
-                  </ Box>
-                  <Box
-                    sx={{
-                      alignItems: 'center',
-                      display: 'flex',
-                      mt: 5
-                    }}
-                  >
+              sx={{
+                backgroundColor: defaultB,
+                maxWidth: 1000,
+                p: 3,
+                mx: 'auto',
+              }}
+            >
+              <Box>
+                <Grid container>
+                  <Grid item sm={6} xs={12}>
                     <Typography
-                      sx={{ fontWeight: 'bold' }}
+                      sx={{ fontWeight: 'bold', mt: 3 }}
                       variant="h4"
                     >
-                      Shipping address
+                      Contact Information
                     </Typography>
-                  </Box>
-                  <Box sx={{ mt: 3 }}>
-                    <Grid
-                      container
-                      spacing={3}
+                  </Grid>
+                  <Grid item sm={6} xs={12}>
+                    <Typography
+                      sx={{
+                        mt: 3,
+                        textAlign: 'right'
+                      }}
+                      variant="h6"
                     >
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField
-                          fullWidth
-                          required
-                          label="First Name"
-                          name="firstName"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField
-                          fullWidth
-                          required
-                          label="Last Name"
-                          name="lastName"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField
-                          fullWidth
-                          required
-                          label="Street Address"
-                          name="address"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField
-                          fullWidth
-                          label="Apartment, suite, etc. (optional)"
-                          name="optionalAddress"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField 
-                          fullWidth
-                          required
-                          label="Country"
-                          name="country"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={6}
-                        xs={12}
-                      >
-                        <FormikField 
-                          fullWidth
-                          label="Phone"
-                          name="phoneNumber"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={3}
-                        xs={12}
-                      >
-                        <FormikField 
-                          fullWidth
-                          label="City"
-                          name="city"
-                        />
-                      </Grid>
-                      <Grid
-                        item
-                        sm={3}
-                        xs={12}
-                      >
-                        <FormikField 
-                          fullWidth
-                          label="Zip code"
-                          name="zipCode"
-                        />
-                      </Grid>
-                    </Grid>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      width: '100%',
-                      mt: 3
-                    }}
+                      Already have an account? Log in
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box sx={{ mt: 3 }}>
+                <Grid
+                  container
+                  spacing={1}
+                >
+                  <Grid
+                    item
+                    xs={12}
                   >
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      sx={{ width: '100%', height: '50px', fontSize: '15px'}}
-                      disabled={!dirty || !isValid}
-                    >
-                      Continue to shipping
-                    </Button>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      width: '100%',
-                      mt: 3
-                    }}
+                    <FormikField
+                      fullWidth
+                      required
+                      label="E-mail"
+                      name="email"
+                      type="email"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={<Checkbox />}
+                      label="I want to receive Effort Stack newsletters and promotional emails to get access to the latest ES news"
+                    />
+                  </Grid>
+                </Grid>
+              </ Box>
+              <Box
+                sx={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  mt: 5
+                }}
+              >
+                <Typography
+                  sx={{ fontWeight: 'bold' }}
+                  variant="h4"
+                >
+                  Shipping address
+                </Typography>
+              </Box>
+              <Box sx={{ mt: 3 }}>
+                <Grid
+                  container
+                  spacing={3}
+                >
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
                   >
-                    <Button
-                      variant="outlined"
-                      sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
-                    >
-                      Return to Cart
-                    </Button>
-                  </Box>
-                </Box>
+                    <FormikField
+                      fullWidth
+                      required
+                      label="First Name"
+                      name="firstName"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
+                  >
+                    <FormikField
+                      fullWidth
+                      required
+                      label="Last Name"
+                      name="lastName"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
+                  >
+                    <FormikField
+                      fullWidth
+                      required
+                      label="Street Address"
+                      name="address"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
+                  >
+                    <FormikField
+                      fullWidth
+                      label="Apartment, suite, etc. (optional)"
+                      name="optionalAddress"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
+                  >
+                    <FormikField 
+                      fullWidth
+                      required
+                      label="Country"
+                      name="country"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={6}
+                    xs={12}
+                  >
+                    <FormikField 
+                      fullWidth
+                      label="Phone"
+                      name="phoneNumber"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={3}
+                    xs={12}
+                  >
+                    <FormikField 
+                      fullWidth
+                      label="City"
+                      name="city"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    sm={3}
+                    xs={12}
+                  >
+                    <FormikField 
+                      fullWidth
+                      label="Zip code"
+                      name="zipCode"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  width: '100%',
+                  mt: 3
+                }}
+              >
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{ width: '100%', height: '50px', fontSize: '15px'}}
+                  disabled={!dirty || !isValid}
+                >
+                  Continue to shipping
+                </Button>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  width: '100%',
+                  mt: 3
+                }}
+              >
+                <Button
+                  variant="outlined"
+                  sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
+                >
+                  Return to Cart
+                </Button>
+              </Box>
             </Box>
           </Form>
         </Box>
