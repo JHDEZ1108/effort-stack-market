@@ -125,6 +125,7 @@ function PaymentInformation({ products }) {
                         xs={12}
                       >
                         <FormikField
+                          required
                           fullWidth
                           label="Name on Card"
                           name="cardOwner"
@@ -135,6 +136,7 @@ function PaymentInformation({ products }) {
                         xs={12}
                       >
                         <FormikField
+                          required
                           fullWidth
                           label="Card Number"
                           name="cardNumber"
@@ -146,6 +148,7 @@ function PaymentInformation({ products }) {
                         xs={12}
                       >
                         <FormikField
+                          required
                           fullWidth
                           label="Expire Date"
                           name="cardExpirationDate"
@@ -158,6 +161,7 @@ function PaymentInformation({ products }) {
                         xs={12}
                       >
                         <FormikField
+                          required
                           fullWidth
                           label="Security Code"
                           name="cardSecurityCode"
