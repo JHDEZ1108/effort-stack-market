@@ -14,26 +14,32 @@ import Payment from '../containers/Checkout/Payment.jsx';
 import Success from '../containers/Checkout/Success.jsx';
 import NotFound from '../containers/NotFound.jsx';
 
+import AppContext from '../context/AppContext.js';
+import useInitialState from '../hooks/useInitialState.js';
+
 function App() {
   const mode = useSelector((state) => state.ui.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const initialState = useInitialState();
   
   return (
-    <ThemeProvider theme={theme}> 
-      <CssBaseline />
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/checkout" element={<Checkout />} />
-            <Route exact path="/checkout/information" element={<Information />} />
-            <Route exact path="/checkout/payment" element={<Payment />} />
-            <Route exact path="/checkout/success" element={<Success />} />
-            <Route element={NotFound} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </ThemeProvider>
+    <AppContext.Provider value={initialState}>
+      <ThemeProvider theme={theme}> 
+        <CssBaseline />
+        <BrowserRouter>
+          <Layout>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/checkout" element={<Checkout />} />
+              <Route exact path="/checkout/information" element={<Information />} />
+              <Route exact path="/checkout/payment" element={<Payment />} />
+              <Route exact path="/checkout/success" element={<Success />} />
+              <Route element={NotFound} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 
