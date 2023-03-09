@@ -7,6 +7,7 @@ export default {
       'title': 'Camiseta',
       'price': 25,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'sku': 'CMST-BLU-M-001'
     },
     {
       'id': '3',
@@ -14,6 +15,7 @@ export default {
       'title': 'Mug',
       'price': 10,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit',
+      'sku': 'MUG-WHT-'
     },
     {
       'id': '4',
@@ -21,6 +23,7 @@ export default {
       'title': 'Pin',
       'price': 4,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'sku': 'PIN-LOG-'
     },
     {
       'id': '5',
@@ -28,6 +31,7 @@ export default {
       'title': 'Stickers',
       'price': 2,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'sku': 'STK-PLA-'
     },
     {
       'id': '6',
@@ -35,6 +39,7 @@ export default {
       'title': 'Stickers',
       'price': 2,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'sku': 'STK-NUN-'
     },
     {
       'id': '7',
@@ -42,6 +47,7 @@ export default {
       'title': 'Hoodie',
       'price': 35,
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      'sku': 'HDIE-BLU-M-'
     },
   ],
 };
