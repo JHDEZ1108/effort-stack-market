@@ -6,10 +6,10 @@ import AppContext from '../../context/AppContext';
 function Products() {
   const { state, addToCart } = useContext(AppContext);
   const { products } = state;
-  
-  const handleAddToCart = () => {
-    addToCart(products);
-  };
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  }
   
   return (
     <Grid container sx={{ p: 5 }}>

@@ -34,7 +34,7 @@ function Product({ product, handleAddToCart }) {
             <Grid item sx={{ pt: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Button
                 variant="contained"
-                onClick={handleAddToCart}
+                onClick={() =>handleAddToCart(product)}
                 sx={{
                   fontWeight: 'bold',
                   backgroundColor: primaryMain,
@@ -45,7 +45,7 @@ function Product({ product, handleAddToCart }) {
                   },
                 }}
               >
-                Buy
+                Add to cart
               </Button>
             </Grid>
           </Box>
