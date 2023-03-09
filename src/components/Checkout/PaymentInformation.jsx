@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Grid,
@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from 'formik';
 import FormikField from '../FormikField';
 
+
 const paymentMethods = [
   {
     label: 'Visa Credit/Debit Card',
@@ -30,7 +31,7 @@ const paymentMethods = [
   }
 ];
 
-function PaymentInformation({ products }) {
+function PaymentInformation({ cart, handleTotal }) {
   /* ---------- Theme configuration -----------*/
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
@@ -188,7 +189,7 @@ function PaymentInformation({ products }) {
                       </ Grid>
                       <Grid item xs={12}>
                         <List sx={{ ml: 3, mr: 3 }}>
-                          {products.map((product) => (
+                          {cart.map((product) => (
                             <ListItem
                               disableGutters
                               key={product.id}
@@ -214,7 +215,7 @@ function PaymentInformation({ products }) {
                                         variant="body1"
                                       >
                                         $
-                                        {numeral(product.price).format('00.00')}
+                                        {numeral(product.price).format('0.00')}
                                       </Typography>
                                     )}
                                   />
@@ -235,7 +236,7 @@ function PaymentInformation({ products }) {
                             </Typography>
                             <Typography variant="subtitle2">
                               $
-                              {numeral(20).format('00.00')}
+                              {numeral(handleTotal()).format('0.00')}
                             </Typography>
                           </Box>
                           <Box
@@ -250,7 +251,7 @@ function PaymentInformation({ products }) {
                             </Typography>
                             <Typography variant="subtitle2">
                               $
-                              {numeral(10).format('00.00')}
+                              {numeral(3).format('0.00')}
                             </Typography>
                           </Box>
                           <Divider sx={{ my: 2 }} />
@@ -265,7 +266,7 @@ function PaymentInformation({ products }) {
                             </Typography>
                             <Typography variant="subtitle2">
                               $
-                              {numeral(12).format('00.00')}
+                              {numeral(handleTotal() + 3).format('0.00')}
                             </Typography>
                           </Box>
                         </List>
