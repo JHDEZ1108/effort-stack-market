@@ -22,6 +22,7 @@ function ContactInformation(){
   
   /* ---------- Inital Values -----------*/
   const initialValues = {
+    email: '',
     firstName: '',
     lastName: '',
     address: '',
