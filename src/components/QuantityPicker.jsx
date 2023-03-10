@@ -1,22 +1,16 @@
-import React, { useState } from "react";
-import {
-  FormControl,
-  IconButton,
-  Typography,
-  Box,
-} from "@mui/material";
+import React from "react";
+import { FormControl, IconButton, Typography, Box } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 
-function QuantityPicker() {
-  const [quantity, setQuantity] = useState(1);
+function QuantityPicker({ quantity, setQuantity }) {
 
   const handleIncrease = () => {
-    setQuantity((prev) => prev + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleDecrease = () => {
     if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
+      setQuantity(quantity - 1);
     }
   };
 

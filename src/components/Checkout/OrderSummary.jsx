@@ -31,20 +31,27 @@ function OrderSummary(){
   const secondary = theme.palette.primary.aux;
   const deleteC = theme.palette.neutral.error;
   
-  /* ---------- AppContext -----------*/
-  const { state, removeFromCart } = useContext(AppContext);
+  /* ---------- AppContext -----------*/  
+  const { state, addToCart, removeFromCart } = useContext(AppContext);
   const { cart } = state;
 
   const handleRemove = product => () => {
     removeFromCart(product);
   };
-
+  
+  const handleQuantityChange = (product, quantity) => {
+    addToCart(product, quantity - product.quantity);
+  }
+  
   const handleTotal = () => {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
+    if (cart.length === 0) {
+      return 0;
+    }
+    const reducer = (accumulator, currentValue) => accumulator + (currentValue.price * currentValue.quantity);
     const sum = cart.reduce(reducer, 0);
     return sum;
   }
-  
+    
   return (
     <Box
       sx={{
@@ -82,7 +89,7 @@ function OrderSummary(){
             }
           </Box>
           <List sx={{ mt: 2 }}>
-            {cart.map(item => (
+            {cart.map(item => (       
               <ListItem
               disableGutters
               key={item.id}
@@ -130,7 +137,10 @@ function OrderSummary(){
                   sx={{ mr: 3}}
                 />
                 <ListItemSecondaryAction>
-                  <QuantityPicker />
+                  <QuantityPicker
+                    quantity={item.quantity || 1}
+                    setQuantity={value => handleQuantityChange(item, value)}
+                  />
                   <IconButton 
                     sx={{
                       '&:hover': {
