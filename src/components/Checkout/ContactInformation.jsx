@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useContext } from 'react';
 import {
   Box,
   Grid,
@@ -12,7 +12,8 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 // import { postcodeValidator } from 'postcode-validator';
 import { Link } from 'react-router-dom';
-import FormikField from '../FormikField'
+import FormikField from '../FormikField';
+import AppContext from '../../context/AppContext';
 
 function ContactInformation(){
   /* ---------- Theme configuration -----------*/
@@ -32,6 +33,7 @@ function ContactInformation(){
     city: '',
     zipCode: ''
   }
+    
   /* ---------- Fake emails -----------*/
   const emailAddresses = [
     'test@gmail.com',
@@ -47,34 +49,54 @@ function ContactInformation(){
     .notOneOf(emailAddresses, 'Email already taken!')
     .required('You need to add an email!'),
     firstName: Yup.string()
-      .min(2, 'Too short to be a name!')
-      .matches(/^[\p{L}]+$/u, 'First name cannot contain numbers')
-      .required('You need to add a name!'),
+    .min(2, 'Too short to be a name!')
+    .matches(/^[\p{L}]+$/u, 'First name cannot contain numbers')
+    .required('You need to add a name!'),
     lastName: Yup.string()
-      .min(2, 'Too short to be a last name!')
-      .matches(/^[\p{L}]+$/u, 'Last name cannot contain numbers')
-      .required('You need to add a last name!'),
+    .min(2, 'Too short to be a last name!')
+    .matches(/^[\p{L}]+$/u, 'Last name cannot contain numbers')
+    .required('You need to add a last name!'),
     address: Yup.string()
-      .min(5, 'Too short to be an address!')
-      .required('You need to add an address!'),
+    .min(5, 'Too short to be an address!')
+    .required('You need to add an address!'),
     optionalAddress: Yup.string()
-      .min(5, 'Too short to be an address!'),
+    .min(5, 'Too short to be an address!'),
     zipCode: Yup.string()
-      .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Invalid zip code'),
+    .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Invalid zip code'),
     phoneNumber: Yup.string()
-      .matches(/^\+(?:[0-9] ?){6,14}[0-9]$/, 'Invalid phone number'),
+    .matches(/^\+(?:[0-9] ?){6,14}[0-9]$/, 'Invalid phone number'),
     country: Yup.string()
-      .min(2, 'Too short to be a country name!')
-      .required('You need to add a country!'),
+    .min(2, 'Too short to be a country name!')
+    .required('You need to add a country!'),
     city: Yup.string()
-      .matches(/^[\p{L}]+(?:[\s-][\p{L}]+)*$/u, 'Invalid city name')
+    .matches(/^[\p{L}]+(?:[\s-][\p{L}]+)*$/u, 'Invalid city name')
   });
+  
+  const { addToBuyer } = useContext(AppContext);
+  const form = useRef(null);
+  const handleSubmit = () => {
+    const formData = new FormData(form.current);
+
+    const buyer = {
+      email: formData.get('firstName'),
+      firstName: formData.get('email'),
+      lastName: formData.get('lastName'),
+      address: formData.get('address'),
+      optionalAddress: formData.get('optionalAddress'),
+      country: formData.get('country'),
+      phoneNumber: formData.get('phoneNumber'),
+      city: formData.get('city'),
+      zipCode: formData.get('zipCode')
+    }
+    
+    addToBuyer(buyer);
+  }
   
   return(
     <Formik
       validationSchema={ContactInformationSchema}
       initialValues={initialValues}
-      onSubmit={(event) => event.preventDefault()}
+      ref={form}
     >
       {({dirty, isValid}) =>(
         <Box
@@ -282,6 +304,7 @@ function ContactInformation(){
                 <Button
                   component={Link}
                   to="/checkout"
+                  onClick={handleSubmit}
                   variant="outlined"
                   sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
                 >
