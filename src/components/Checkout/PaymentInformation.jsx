@@ -214,8 +214,7 @@ function PaymentInformation({ cart, handleTotal }) {
                                         color="textSecondary"
                                         variant="body1"
                                       >
-                                        $
-                                        {numeral(product.price).format('0.00')}
+                                        {product.quantity}x ${numeral(product.price).format('0.00')}
                                       </Typography>
                                     )}
                                   />
