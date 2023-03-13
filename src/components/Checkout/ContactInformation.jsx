@@ -11,7 +11,7 @@ import {
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 // import { postcodeValidator } from 'postcode-validator';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import FormikField from '../FormikField';
 import AppContext from '../../context/AppContext';
 
@@ -74,9 +74,10 @@ function ContactInformation(){
   
   const { addToBuyer } = useContext(AppContext);
   const form = useRef(null);
+  const navigate = useNavigate()
+  
   const handleSubmit = () => {
     const formData = new FormData(form.current);
-
     const buyer = {
       email: formData.get('firstName'),
       firstName: formData.get('email'),
@@ -88,8 +89,8 @@ function ContactInformation(){
       city: formData.get('city'),
       zipCode: formData.get('zipCode')
     }
-    
     addToBuyer(buyer);
+    navigate('/checkout/payment');
   }
   
   return(
