@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Box,
   Button,
@@ -17,10 +17,9 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import numeral from 'numeral';
 import { Link } from 'react-router-dom';
-import AppContext from '../../context/AppContext';
 import QuantityPicker from '../QuantityPicker';
 
-function OrderSummary(){
+function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal }){
 
   /* ---------- Theme configuration -----------*/
   const theme = useTheme();
@@ -30,27 +29,6 @@ function OrderSummary(){
   const primaryMain = theme.palette.primary.main;
   const secondary = theme.palette.primary.aux;
   const deleteC = theme.palette.neutral.error;
-  
-  /* ---------- AppContext -----------*/  
-  const { state, addToCart, removeFromCart } = useContext(AppContext);
-  const { cart } = state;
-
-  const handleRemove = product => () => {
-    removeFromCart(product);
-  };
-  
-  const handleQuantityChange = (product, quantity) => {
-    addToCart(product, quantity - product.quantity);
-  }
-  
-  const handleTotal = () => {
-    if (cart.length === 0) {
-      return 0;
-    }
-    const reducer = (accumulator, currentValue) => accumulator + (currentValue.price * currentValue.quantity);
-    const sum = cart.reduce(reducer, 0);
-    return sum;
-  }
     
   return (
     <Box
