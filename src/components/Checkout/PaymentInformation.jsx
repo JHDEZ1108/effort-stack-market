@@ -18,6 +18,7 @@ import * as Yup from 'yup';
 import { Link } from "react-router-dom";
 import { Formik, Form } from 'formik';
 import FormikField from '../FormikField';
+import PayPalCheckoutButton from './PayPalCheckOutButton';
 
 
 const paymentMethods = [
@@ -170,6 +171,12 @@ function PaymentInformation({ cart, handleTotal }) {
                         />
                       </Grid>
                     </ Grid>
+                    <Grid
+                        item
+                        xs={12}
+                    >
+                      <PayPalCheckoutButton cart={cart} handleTotal={handleTotal}/>
+                    </Grid>
                   </Grid>
                   <Grid xs={12} sm={6} item>
                     <Grid

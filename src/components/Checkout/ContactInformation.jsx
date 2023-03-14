@@ -97,7 +97,7 @@ function ContactInformation(){
     <Formik
       validationSchema={ContactInformationSchema}
       initialValues={initialValues}
-      ref={form}
+      innerRef={form}
     >
       {({dirty, isValid}) =>(
         <Box
