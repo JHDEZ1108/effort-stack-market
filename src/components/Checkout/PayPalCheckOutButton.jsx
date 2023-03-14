@@ -1,29 +1,37 @@
+/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { nanoid } from 'nanoid';
 import AppContext from '../../context/AppContext';
 
 function PayPalCheckoutButton ({ cart, handleTotal }) {
   const navigate = useNavigate();
   const { state, addNewOrder } = useContext(AppContext);
   const { buyer } = state;
-  
+  const shippingCost = 3;
+
   const initialOptions = {
     "client-id": process.env.REACT_APP_CLIENT_ID,
     currency: "USD",
     intent: "capture"
   }
-  
+
   const createOrder = (data, actions) => actions.order.create({
     purchase_units: [
       {
+        reference_id: nanoid(),
         amount: {
-          value: handleTotal(),
+          value: handleTotal() + shippingCost, // Se suma el costo de envío al total de la compra
           currency_code: "USD",
           breakdown: {
             item_total: {
               currency_code: "USD",
               value: cart.reduce((total, item) => total + item.price * item.quantity, 0)
+            },
+            shipping: { // Se agrega el costo de envío en el breakdown
+              currency_code: "USD",
+              value: shippingCost
             }
           }
         },
@@ -38,10 +46,11 @@ function PayPalCheckoutButton ({ cart, handleTotal }) {
       }
     ]
   });
-  
+
   const onApprove = async (data, actions) => {
     const order = await actions.order.capture();
     const newOrder = {
+      id: nanoid(),
       buyer,
       product: cart,
       payment: order
@@ -50,14 +59,14 @@ function PayPalCheckoutButton ({ cart, handleTotal }) {
     navigate("/checkout/success");
 
   };
-  
+
   const onError = (err) => {
     console.error("Error en el pago: ", err);
   }
-  
+
   return(
     <PayPalScriptProvider options={initialOptions}>
-      <PayPalButtons 
+      <PayPalButtons
         style={{ layout: "horizontal", tagline: false }}
         createOrder={createOrder}
         onApprove={onApprove}

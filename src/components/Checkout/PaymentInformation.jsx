@@ -173,6 +173,7 @@ function PaymentInformation({ cart, handleTotal }) {
                     </ Grid>
                     <Grid
                         item
+                        sx={{mt: 3}}
                         xs={12}
                     >
                       <PayPalCheckoutButton cart={cart} handleTotal={handleTotal}/>
