@@ -79,8 +79,8 @@ function ContactInformation(){
   const handleSubmit = () => {
     const formData = new FormData(form.current);
     const buyer = {
-      email: formData.get('firstName'),
-      firstName: formData.get('email'),
+      email: formData.get('email'),
+      firstName: formData.get('firstName'),
       lastName: formData.get('lastName'),
       address: formData.get('address'),
       optionalAddress: formData.get('optionalAddress'),
