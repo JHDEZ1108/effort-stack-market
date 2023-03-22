@@ -20,22 +20,10 @@ function Success() {
   const [lastName, setLastName] = useState('');
 
   useEffect(() => {
-    if (orders && orders[0] && orders[0].buyer && orders[0].buyer[0]) {
-      if (orders[0].buyer[0].firstName) {
-        setFirstName(orders[0].buyer[0].firstName);
-      } else {
-        setFirstName("Comprador");
-      }
+    const buyer = orders && orders[0] && orders[0].buyer && orders[0].buyer[0];
 
-      if (orders[0].buyer[0].lastName) {
-        setLastName(orders[0].buyer[0].lastName);
-      } else {
-        setLastName("");
-      }
-    } else {
-      setFirstName("Comprador");
-      setLastName("o Compradora");
-    }
+    setFirstName(buyer && buyer.firstName ? buyer.firstName : "Comprador");
+    setLastName(buyer && buyer.lastName ? buyer.lastName : "o Compradora");
   }, [orders]);
   
   return(
