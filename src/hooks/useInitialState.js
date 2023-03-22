@@ -58,8 +58,15 @@ const useInitialState = () => {
       orders:[...state.orders, payload]
     })
   }
+  
+  const clearCart = () => {
+    setState({
+      ...state,
+      cart: []
+    });
+  };
 
-  return { state, addToCart, removeFromCart, addToBuyer, addNewOrder }
+  return { state, addToCart, removeFromCart, addToBuyer, addNewOrder, clearCart }
 }
 
 export default useInitialState;
