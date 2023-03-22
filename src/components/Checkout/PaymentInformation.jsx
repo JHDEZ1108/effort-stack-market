@@ -32,7 +32,7 @@ const paymentMethods = [
   }
 ];
 
-function PaymentInformation({ cart, handleTotal }) {
+function PaymentInformation({ cart, handleTotal, buyer }) {
   /* ---------- Theme configuration -----------*/
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
@@ -176,7 +176,7 @@ function PaymentInformation({ cart, handleTotal }) {
                         sx={{mt: 3}}
                         xs={12}
                     >
-                      <PayPalCheckoutButton cart={cart} handleTotal={handleTotal}/>
+                      <PayPalCheckoutButton cart={cart} handleTotal={handleTotal} buyer={buyer}/>
                     </Grid>
                   </Grid>
                   <Grid xs={12} sm={6} item>

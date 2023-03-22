@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 import PaymentSuccess from '../../assets/PaymentSuccess.svg';
 
 
-function PaymentSuccesfull({ cart, buyer }){
+function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
+
   /* ---------- Theme configuration -----------*/
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
@@ -54,12 +55,12 @@ function PaymentSuccesfull({ cart, buyer }){
                           Payment Successful
                         </Typography>
                       </Box>
-                      <Box>
+                      <Box sx={{ pt: 2 }}>
                         <Typography
-                        sx={{ fontWeight: 'fontWeightBold' }}
-                        variant="subtitle2"
+                        sx={{ pt: 2, textAlign: 'center' }}
+                        variant="h4" 
                         >
-                          Gracias por su compra {buyer.firstName}
+                          Gracias por su compra {firstName} {lastName}
                         </Typography>
                       </Box>
                     </Grid>
@@ -111,7 +112,7 @@ function PaymentSuccesfull({ cart, buyer }){
                           </Typography>
                           <Typography variant="subtitle2">
                             $
-                            {numeral(1).format('0.00')}
+                            {numeral(handleTotal()).format('0.00')}
                           </Typography>
                         </Box>
                         <Box
@@ -141,7 +142,7 @@ function PaymentSuccesfull({ cart, buyer }){
                           </Typography>
                           <Typography variant="subtitle2">
                             $
-                            {numeral(1 + 3).format('0.00')}
+                            {numeral(handleTotal() + 3).format('0.00')}
                           </Typography>
                         </Box>
                       </List>

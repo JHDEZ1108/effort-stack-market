@@ -95,9 +95,9 @@ function ContactInformation(){
   
   return(
     <Formik
-      validationSchema={ContactInformationSchema}
       initialValues={initialValues}
-      innerRef={form}
+      validationSchema={ContactInformationSchema}
+      onSubmit={handleSubmit}
     >
       {({dirty, isValid}) =>(
         <Box
@@ -107,7 +107,7 @@ function ContactInformation(){
             p: 3
           }}
         >
-          <Form>
+          <Form ref={form}>
             <Box
               sx={{
                 backgroundColor: defaultB,
@@ -285,8 +285,6 @@ function ContactInformation(){
                 }}
               >
                 <Button
-                  component={Link}
-                  to="/checkout/payment"
                   type="submit"
                   variant="contained"
                   sx={{ width: '100%', height: '50px', fontSize: '15px'}}
@@ -305,7 +303,6 @@ function ContactInformation(){
                 <Button
                   component={Link}
                   to="/checkout"
-                  onClick={handleSubmit}
                   variant="outlined"
                   sx={{ width: '100%', height: '50px', fontSize: '15px', fontWeight: 'bold' }}
                 >

@@ -5,10 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { nanoid } from 'nanoid';
 import AppContext from '../../context/AppContext';
 
-function PayPalCheckoutButton ({ cart, handleTotal }) {
+function PayPalCheckoutButton ({ cart, handleTotal, buyer }) {
   const navigate = useNavigate();
-  const { state, addNewOrder } = useContext(AppContext);
-  const { buyer } = state;
+  const { addNewOrder } = useContext(AppContext);
   const shippingCost = 3;
 
   const initialOptions = {
@@ -42,7 +41,14 @@ function PayPalCheckoutButton ({ cart, handleTotal }) {
             value: item.price,
             currency_code: "USD"
           }
-        }))
+        })),
+        payer: {
+          name: {
+            given_name: buyer.firstName,
+            surname: buyer.lastName
+          },
+          email_address: buyer.email
+        },
       }
     ]
   });
@@ -57,7 +63,6 @@ function PayPalCheckoutButton ({ cart, handleTotal }) {
     };
     addNewOrder(newOrder);
     navigate("/checkout/success");
-
   };
 
   const onError = (err) => {

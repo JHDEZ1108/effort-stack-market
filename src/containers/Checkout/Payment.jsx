@@ -7,7 +7,7 @@ import AppContext from '../../context/AppContext';
 function Payment() {
   /* ---------- AppContext -----------*/
   const { state } = useContext(AppContext);
-  const { cart } = state;
+  const { cart, buyer } = state;
   
   const handleTotal = () => {
     if (cart.length === 0) {
@@ -19,7 +19,7 @@ function Payment() {
   }
   
   return(
-    <PaymentInformation cart={cart} handleTotal={handleTotal} />
+    <PaymentInformation cart={cart} handleTotal={handleTotal} buyer={buyer}/>
   );
 };
 
