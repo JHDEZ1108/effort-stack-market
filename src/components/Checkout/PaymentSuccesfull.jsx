@@ -21,6 +21,8 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
   const defaultB = theme.palette.background.aux;
+  const primaryMain = theme.palette.primary.main;
+  
 
   return(
         <Box
@@ -55,12 +57,22 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                           Payment Successful
                         </Typography>
                       </Box>
-                      <Box sx={{ pt: 2 }}>
+                      <Box sx={{ pt: 2, pb: 2 }}>
                         <Typography
-                        sx={{ pt: 2, textAlign: 'center' }}
-                        variant="h4" 
+                          sx={{ pt: 2, textAlign: 'center' }}
+                          variant="h4"
                         >
-                          Gracias por su compra {firstName} {lastName}
+                          Gracias por su compra{' '}
+                          <Typography
+                            component="span"
+                            variant="h4"
+                            sx={{
+                              fontWeight: 'bold',
+                              color: primaryMain,
+                            }}
+                          >
+                            {firstName} {' '} {lastName}
+                          </Typography>
                         </Typography>
                       </Box>
                     </Grid>
