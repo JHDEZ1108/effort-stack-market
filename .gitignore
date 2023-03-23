@@ -124,6 +124,3 @@ dist
 #firebase
 .firebaserc
 firebase.json 
-
-#Github
-.gitHub
