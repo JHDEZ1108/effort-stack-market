@@ -120,3 +120,7 @@ dist
 #others
 .pnp.cjs
 .pnp.loader.mjs
+
+#firebase
+.firebaserc
+firebase.json 
