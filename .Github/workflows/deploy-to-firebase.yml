@@ -14,7 +14,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Build
-        run: npm run build-prod
+        run: npm run build
+        env:
+          PAYPAL_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:

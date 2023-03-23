@@ -11,7 +11,7 @@ function PayPalCheckoutButton ({ cart, handleTotal, buyer }) {
   const shippingCost = 3;
 
   const initialOptions = {
-    "client-id": process.env.REACT_APP_CLIENT_ID,
+    "client-id": process.env.PAYPAL_CLIENT_ID,
     currency: "USD",
     intent: "capture"
   }
