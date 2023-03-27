@@ -1,8 +1,16 @@
 import React, { useContext } from 'react';
 import PaymentInformation from "../../components/Checkout/PaymentInformation";
 import AppContext from '../../context/AppContext';
+import MetaData from '../../components/MetaData';
 
-
+const meta = (
+  <MetaData
+    title="Payment"
+    description="Confirma tu metodo de pago"
+    image="https://images.unsplash.com/photo-1540200049848-d9813ea0e120?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    url="https://whitelabelsv/Payment"
+  />
+);
 
 function Payment() {
   /* ---------- AppContext -----------*/
@@ -19,7 +27,10 @@ function Payment() {
   }
   
   return(
-    <PaymentInformation cart={cart} handleTotal={handleTotal} buyer={buyer}/>
+    <>
+      {meta}
+      <PaymentInformation cart={cart} handleTotal={handleTotal} buyer={buyer}/>
+    </>
   );
 };
 

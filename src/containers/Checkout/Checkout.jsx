@@ -1,7 +1,16 @@
 import React, { useContext } from 'react';
 import OrderSummary from '../../components/Checkout/OrderSummary';
 import AppContext from '../../context/AppContext';
+import MetaData from '../../components/MetaData';
 
+const meta = (
+  <MetaData
+    title="Checkout"
+    description="Confirma tus productos"
+    image="https://images.unsplash.com/photo-1540200049848-d9813ea0e120?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    url="https://whitelabelsv/Checkout"
+  />
+);
 
 function Checkout() {
   const { state, addToCart, removeFromCart } = useContext(AppContext);
@@ -27,12 +36,15 @@ function Checkout() {
   }
   
   return (
-    <OrderSummary 
-      cart={cart} 
-      handleRemove={handleRemove} 
-      handleQuantityChange={handleQuantityChange}
-      handleTotal = {handleTotal}
-    />
+    <>
+      {meta}
+      <OrderSummary 
+        cart={cart} 
+        handleRemove={handleRemove} 
+        handleQuantityChange={handleQuantityChange}
+        handleTotal = {handleTotal}
+      />
+    </>
   )
 }
 

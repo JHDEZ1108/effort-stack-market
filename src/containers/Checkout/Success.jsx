@@ -1,6 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PaymentSuccesfull from '../../components/Checkout/PaymentSuccesfull';
 import AppContext from '../../context/AppContext';
+import MetaData from '../../components/MetaData';
+
+const meta = (
+  <MetaData
+    title="Success"
+    description="Orden confirmada"
+    image="https://images.unsplash.com/photo-1540200049848-d9813ea0e120?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    url="https://whitelabelsv/Success"
+  />
+);
 
 function Success() {
   /* ---------- AppContext -----------*/
@@ -27,7 +37,10 @@ function Success() {
   }, [orders]);
   
   return(
-    <PaymentSuccesfull cart={cart} handleTotal={handleTotal} firstName={firstName} lastName={lastName}/>
+    <>
+      {meta}
+      <PaymentSuccesfull cart={cart} handleTotal={handleTotal} firstName={firstName} lastName={lastName}/>
+    </>
   );
 }
 
