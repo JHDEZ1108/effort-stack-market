@@ -4,7 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -65,7 +67,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: './public/Logo_Final.ico',
+      favicon: './public/assets/Logo_Final.ico',
       template: './public/index.html',
       filename: './index.html',
       manifest: './public/manifest.json',
@@ -73,8 +75,21 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/service-workers.js', to: '' },
+        { from: 'public/assets/Logo_Final.ico', to: 'assets' },
+        { from: 'public/assets/Logo_Final_144.png', to: 'assets' },
+        { from: 'public/assets/Logo_Final_192.png', to: 'assets' },
+        { from: 'public/assets/Logo_Final_512.png', to: 'assets' },
+      ],
+    }),
     new CleanWebpackPlugin(),
     new Dotenv(),
+    new GenerateSW({
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // Aumenta el límite a 10 MB
+    }),
   ],
   optimization: {
     minimize: true,
