@@ -2,8 +2,11 @@ import React from 'react';
 import { Grid, Box } from '@mui/material';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import useAnalytics from '../hooks/useAnalytics';
 
 function Layout({ children }) {
+  useAnalytics();
+  
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Grid container spacing={1} sx={{ flexGrow: 1 }}>

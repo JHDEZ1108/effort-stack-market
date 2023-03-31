@@ -18,6 +18,7 @@ jobs:
         env:
           PAYPAL_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
           API_KEY: ${{ secrets.API_KEY }}
+          MESURE_ANALYTICS_ID: ${{ secrets.MESURE_ANALYTICS_ID }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:

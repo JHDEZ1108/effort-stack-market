@@ -71,6 +71,9 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html',
       manifest: './public/manifest.json',
+      templateParameters: {
+        MESURE_ANALYTICS_ID: process.env.MESURE_ANALYTICS_ID,
+      },
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
@@ -88,6 +91,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new Dotenv(),
     new GenerateSW({
+      cacheId: 'EffortStackCache',
       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // Aumenta el límite a 10 MB
     }),
   ],
