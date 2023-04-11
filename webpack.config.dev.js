@@ -69,6 +69,8 @@ module.exports = {
       manifest: './public/manifest.json',
       templateParameters: {
         MESURE_ANALYTICS_ID: process.env.MESURE_ANALYTICS_ID,
+        PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
+        FIREBASE_TOKEN: process.env.FIREBASE_TOKEN
       },
     }),
     new MiniCssExtractPlugin({
