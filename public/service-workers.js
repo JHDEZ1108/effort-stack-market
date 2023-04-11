@@ -76,6 +76,6 @@ workbox.precaching.precacheAndRoute([
 ]);
 
 // Por defecto va al final de todo 
-workbox.routing.registerRoute(/^https?.*/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.setDefaultHandler(new workbox.strategies.CacheFirst());
 
 // workbox.setConfig({ debug: false });
