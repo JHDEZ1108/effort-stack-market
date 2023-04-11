@@ -87,7 +87,12 @@ module.exports = {
         { from: 'public/assets/Logo_Final_512.png', to: 'assets' },
       ],
     }),
-    new Dotenv(),
+		new Dotenv({
+			path: './.env',
+			safe: true,
+			systemvars: true,
+			defaults: false,
+		}),
     new webpack.DefinePlugin({
       'process.env.MESURE_ANALYTICS_ID': JSON.stringify(process.env.MESURE_ANALYTICS_ID),
       'process.env.PAYPAL_CLIENT_ID': JSON.stringify(process.env.PAYPAL_CLIENT_ID),
