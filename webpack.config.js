@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -92,6 +93,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new Dotenv(),
+    new webpack.DefinePlugin({
+      'process.env.MESURE_ANALYTICS_ID': JSON.stringify(process.env.MESURE_ANALYTICS_ID),
+      'process.env.PAYPAL_CLIENT_ID': JSON.stringify(process.env.PAYPAL_CLIENT_ID),
+		}),
     new GenerateSW({
       cacheId: 'EffortStackCache',
       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // Aumenta el límite a 10 MB

@@ -42,6 +42,4 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PAYPAL_CLIENT_ID: ${{ secrets.PAYPAL_CLIENT_ID }}
-          MESURE_ANALYTICS_ID: ${{ secrets.MESURE_ANALYTICS_ID }}
           
