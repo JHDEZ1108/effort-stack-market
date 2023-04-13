@@ -45,7 +45,7 @@ function Footer() {
       sx={{ p: 2, mt: 3, backgroundColor: defaultB, boxShadow: `0px 0px 2px #fae6af`, }} >
       {urlList.map((url) => (
         <Grid item key={url.name}>
-          <Link href={url.href} target="_blank" rel="noreferrer" underline="none">
+          <Link href={url.href} target="_blank" rel="noreferrer" underline="none" alt={url.name}>
             <IconButton sx={{ transition: 'transform 250ms', '&:hover': { transform: 'scale(1.5)' } }}>
               {url.icon}
             </IconButton>

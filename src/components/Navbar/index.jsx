@@ -49,6 +49,7 @@ function Navbar() {
         <FlexBetween gap="1.75rem">
           <IconButton
             component={Link}
+            alt="ESLogo"
             to="/"
           >
             <SvgIcon style={{ height: '30px', width: '30px' }}>
@@ -73,14 +74,15 @@ function Navbar() {
             onClick={() => dispatch(setMode())}
           >
           {theme.palette.mode === "dark" ? (
-            <LightMode sx={{ color: primaryMain, fontSize: "25px" }} />
+            <LightMode alt="LightMode" sx={{ color: primaryMain, fontSize: "25px" }} />
             ) : (
-            <DarkMode sx={{ color: primaryMain, fontSize: "25px" }} />
+            <DarkMode alt="DarkMode" sx={{ color: primaryMain, fontSize: "25px" }} />
           )}
           </IconButton>
           <IconButton
             component={Link}
             to="/checkout"
+            alt="Cart"
             sx={{ fontSize: "25px", color: primaryMain, }}
           >
             <ShoppingCartIcon />

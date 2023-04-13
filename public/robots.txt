@@ -1,3 +1,23 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /account/
+Disallow: /search/
+Disallow: /wishlist/
+Disallow: /login/
+Disallow: /register/
+Disallow: /resetpassword/
+Disallow: /orders/
+Disallow: /review/
+Disallow: /newsletter/
+Disallow: /customer/
+Disallow: /privacy-policy-cookie-restriction-mode/
+Disallow: /terms-and-conditions/
+Disallow: /*?limit=all
+Disallow: /*?dir=desc
+Disallow: /*?dir=asc
+Disallow: /*?mode=list
+Disallow: /*?mode=grid
+Disallow: /*?p=1
+Disallow: /*?SID=
+Sitemap: https://effort-stack-market.web.app/sitemap.xml
