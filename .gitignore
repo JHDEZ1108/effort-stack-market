@@ -120,3 +120,6 @@ dist
 #firebase
 .firebaserc
 firebase.json 
+
+#.env
+.env
