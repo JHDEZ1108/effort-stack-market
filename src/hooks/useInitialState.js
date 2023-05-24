@@ -1,13 +1,39 @@
-import { useState } from "react";
-import { nanoid } from 'nanoid'
+/* eslint-disable no-console */
+import { useState, useEffect } from "react";
+import { nanoid } from 'nanoid';
+import axios from "axios";
 import initialState from "../assets/initialState"
+
+const API = 'http://35.223.23.252/api/products?populate=%2A';
 
 const useInitialState = () => {
   const [state, setState] = useState({
     ...initialState,
-    products: initialState.products.map(p => ({ ...p, id: nanoid() })),
+    products: [],
     cart: []
-  })
+  });
+  
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios(API);
+        if (Array.isArray(response.data.data)) {
+          setState(prevState => ({
+            ...prevState,
+            products: response.data.data.map(p => ({ ...p, id: nanoid() }))
+          }));
+        } else {
+          console.error('API response is not an array:', response.data);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    getData();
+  }, []);
+  
+  
 
   const addToCart = (product, quantity = 1) => {
     const existingItem = state.cart.find(p => p.id === product.id);

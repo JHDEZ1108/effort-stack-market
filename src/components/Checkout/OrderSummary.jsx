@@ -88,8 +88,8 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                     }}
                   >
                     <img
-                      alt={item.title}
-                      src={item.image}
+                      alt={item.attributes.title}
+                      src={`http://localhost:3008${item.attributes.image.data[0].attributes.url}`}
                     />
                   </Box>
                 </ListItemAvatar>
@@ -99,7 +99,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                       sx={{ fontWeight: 'fontWeightBold' }}
                       variant="subtitle2"
                     >
-                      {item.title}
+                      {item.attributes.title}
                     </Typography>
                   )}
                   secondary={(
@@ -109,7 +109,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                       variant="body1"
                     >
                       $
-                      {numeral(item.price).format('0.00')}
+                      {numeral(item.attributes.price).format('0.00')}
                     </Typography>
                   )}
                   sx={{ mr: 3}}

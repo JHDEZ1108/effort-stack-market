@@ -26,7 +26,7 @@ function PayPalCheckoutButton ({ cart, handleTotal, buyer }) {
           breakdown: {
             item_total: {
               currency_code: "USD",
-              value: cart.reduce((total, item) => total + item.price * item.quantity, 0)
+              value: cart.reduce((total, item) => total + item.attributes.price * item.quantity, 0)
             },
             shipping: { // Se agrega el costo de envío en el breakdown
               currency_code: "USD",
@@ -35,10 +35,10 @@ function PayPalCheckoutButton ({ cart, handleTotal, buyer }) {
           }
         },
         items: cart.map((item) => ({
-          name: item.title,
+          name: item.attributes.title,
           quantity: item.quantity,
           unit_amount: {
-            value: item.price,
+            value: item.attributes.price,
             currency_code: "USD"
           }
         })),

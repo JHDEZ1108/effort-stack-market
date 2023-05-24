@@ -21,7 +21,7 @@ function Success() {
     if (cart.length === 0) {
       return 0;
     }
-    const reducer = (accumulator, currentValue) => accumulator + (currentValue.price * currentValue.quantity);
+    const reducer = (accumulator, currentValue) => accumulator + (currentValue.attributes.price * currentValue.quantity);
     const sum = cart.reduce(reducer, 0);
     return sum;
   }

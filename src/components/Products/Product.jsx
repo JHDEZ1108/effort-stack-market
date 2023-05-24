@@ -9,32 +9,34 @@ function Product({ product, handleAddToCart }) {
   const primaryLight = theme.palette.primary.light;
 
   return (
-    <Grid
-      container
-      alignItems="center"
-      sx={{ minHeight: 250, height: '100%', backgroundColor: defaultB, borderRadius: 3 }}
-    >
-      <Grid item>
-        <img src={product.image} alt={product.title} style={{ maxWidth: 200 }} />
+    <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450, }}>
+      <Grid item xs={12}>
+        <Box sx={{ maxHeight: 300, display: 'flex', justifyContent: 'center' }}>
+          <img
+            src={product.attributes.image.data[0].attributes.url}
+            alt={product.attributes.title}
+            style={{ width: '100%', objectFit: 'cover' }}
+          />
+        </Box>
       </Grid>
-      <Grid item xs sx={{ height: '100%' }}>
-        <Grid container direction="column" sx={{ height: '100%', backgroundColor: defaultA, borderRadius: 3 }}>
+      <Grid item xs={12} sx={{ height: '100%' }}>
+        <Grid container direction="column" sx={{ backgroundColor: defaultA, height: '100%' }}>
           <Box sx={{ p: 3 }}>
-            <Grid item sx={{ pt: 2, fontWeight: 'bold' }}>
+            <Grid item sx={{ fontWeight: 'bold' }}>
               <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                {product.title}
+                {product.attributes.title}
               </Typography>
             </Grid>
             <Grid item sx={{ pt: 1 }}>
-              <Typography variant="subtitle1">{`$${product.price}`}</Typography>
+              <Typography variant="subtitle1">{`$${product.attributes.price}`}</Typography>
             </Grid>
             <Grid item sx={{ pt: 2 }}>
-              <Typography variant="body1">{product.description}</Typography>
+              <Typography variant="body1">{product.attributes.description}</Typography>
             </Grid>
             <Grid item sx={{ pt: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Button
                 variant="contained"
-                onClick={() =>handleAddToCart(product)}
+                onClick={() => handleAddToCart(product)}
                 sx={{
                   fontWeight: 'bold',
                   backgroundColor: primaryMain,

@@ -91,7 +91,7 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                                       sx={{ fontWeight: 'fontWeightBold' }}
                                       variant="subtitle2"
                                     >
-                                      {product.title}
+                                      {product.attributes.title}
                                     </Typography>
                                   )}
                                 />
@@ -103,7 +103,7 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                                       color="textSecondary"
                                       variant="body1"
                                     >
-                                      {product.quantity}x ${numeral(product.price).format('0.00')}
+                                      {product.quantity}x ${numeral(product.attributes.price).format('0.00')}
                                     </Typography>
                                   )}
                                 />
