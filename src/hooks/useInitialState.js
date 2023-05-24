@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import axios from "axios";
 import initialState from "../assets/initialState"
 
-const API = 'http://35.223.23.252/api/products?populate=%2A';
+const API = 'https://35.223.23.252/api/products?populate=%2A';
 
 const useInitialState = () => {
   const [state, setState] = useState({
