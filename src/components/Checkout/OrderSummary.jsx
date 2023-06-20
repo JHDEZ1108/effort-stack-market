@@ -89,7 +89,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                   >
                     <img
                       alt={item.attributes.title}
-                      src={`http://localhost:3008${item.attributes.image.data[0].attributes.url}`}
+                      src={`${item.attributes.image.data[0].attributes.url}`}
                     />
                   </Box>
                 </ListItemAvatar>
