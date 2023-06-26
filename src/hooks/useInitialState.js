@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import axios from "axios";
 import initialState from "../assets/initialState"
 
-const API = 'http://35.208.211.222/api/products?populate=%2A';
+const API = 'https://api.whitelabelsv.com/api/products?populate=%2A';
 
 const useInitialState = () => {
   const [state, setState] = useState({
