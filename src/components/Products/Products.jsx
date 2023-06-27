@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Typography, Box } from '@mui/material';
 import Product from './Product';
 import AppContext from '../../context/AppContext';
 
@@ -12,14 +12,23 @@ function Products() {
   }
   
   return (
-    <Grid container sx={{ p: 5 }}>
-      {products.map(product => (
-        <Grid item key={product.id} xs={12} md={6} lg={4} sx={{ p: 3 }}>
-          <Product product={product} handleAddToCart={handleAddToCart}/>
-        </Grid>
-      ))}
-    </Grid>
+    <Box>
+      <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
+        Our Products
+      </Typography>
+      <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 5 }}>
+        A wide selection of high-quality products just for you.
+      </Typography>
+      <Grid container sx={{ p: 4 }}>
+        {products.map(product => (
+          <Grid item key={product.id} xs={12} md={6} lg={4} sx={{ p: 3 }}>
+            <Product product={product} handleAddToCart={handleAddToCart}/>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 }
 
 export default Products;
+
