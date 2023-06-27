@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Box, Typography, Button, useTheme } from '@mui/material';
-import heroImage from '../../assets/hero.jpg'; 
+import heroImage from '../../assets/hero.jpg';
 
 function Hero() {
   const theme = useTheme(); 
@@ -39,29 +40,47 @@ function Hero() {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
-          Welcome to Our Clothing Store
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          The finest apparel for every occasion
-        </Typography>
-        <Button 
-          variant="contained"
-          onClick={() => document.getElementById("products").scrollIntoView({ behavior: 'smooth' })}
-          sx={{
-            mt: 2,
-            color: '#000',
-            fontWeight: 'bold',
-            backgroundColor: primaryMain,
-            transition: 'transform .2s',
-            '&:hover': {
-              backgroundColor: primaryLight,
-              transform: 'scale(1.1)',
-            },
-          }}
+        <motion.div 
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
-          Shop Now
-        </Button>
+          <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+            Welcome to Our Clothing Store
+          </Typography>
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }} // Añadimos un delay para que aparezca después del título
+        >
+          <Typography variant="h5" gutterBottom>
+            The finest apparel for every occasion
+          </Typography>
+        </motion.div>
+        <motion.div 
+          initial={{ scale: 0 }} 
+          animate={{ scale: 1 }} 
+          transition={{ duration: 0.5, delay: 1 }} // Añadimos un delay para que aparezca después del texto
+        >
+          <Button 
+            variant="contained"
+            onClick={() => document.getElementById("products").scrollIntoView({ behavior: 'smooth' })}
+            sx={{
+              mt: 2,
+              color: '#000',
+              fontWeight: 'bold',
+              backgroundColor: primaryMain,
+              transition: 'transform .2s',
+              '&:hover': {
+                backgroundColor: primaryLight,
+                transform: 'scale(1.1)',
+              },
+            }}
+          >
+            Shop Now
+          </Button>
+        </motion.div>
       </Box>
     </Box>
   );
