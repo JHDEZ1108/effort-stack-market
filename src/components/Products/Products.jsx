@@ -12,7 +12,7 @@ function Products() {
   }
   
   return (
-    <Box>
+    <Box id="products">
       <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
         Our Products
       </Typography>

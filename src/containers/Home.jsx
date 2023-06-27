@@ -1,6 +1,7 @@
 import React from 'react';
 import MetaData from '../components/MetaData';
 import Products from '../components/Products/Products';
+import Hero from '../components/Home/Hero';
 
 const meta = (
   <MetaData
@@ -16,6 +17,7 @@ function Home() {
   return (      
     <>
       {meta}
+      <Hero />
       <Products />
     </>
   );
