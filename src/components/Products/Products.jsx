@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import Product from './Product';
 import AppContext from '../../context/AppContext';
+import LazyLoading from '../../utils/LazyLoading';
 
 function Products() {
   const { state, addToCart } = useContext(AppContext);
@@ -22,7 +23,9 @@ function Products() {
       <Grid container sx={{ p: 4 }}>
         {products.map(product => (
           <Grid item key={product.id} xs={12} md={6} lg={4} sx={{ p: 3 }}>
-            <Product product={product} handleAddToCart={handleAddToCart}/>
+            <LazyLoading>
+              <Product product={product} handleAddToCart={handleAddToCart}/>
+            </LazyLoading>
           </Grid>
         ))}
       </Grid>
@@ -31,4 +34,3 @@ function Products() {
 }
 
 export default Products;
-
