@@ -14,6 +14,8 @@ function Product({ product, handleAddToCart }) {
       initial={{ scale: 0.7, opacity: 0 }} 
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      style={{ cursor: 'pointer' }} 
     >
       <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450, }}>
         <Grid item xs={12}>
@@ -65,3 +67,4 @@ function Product({ product, handleAddToCart }) {
 }
 
 export default Product;
+
