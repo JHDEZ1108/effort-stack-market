@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { DarkMode, LightMode } from '@mui/icons-material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -32,6 +32,24 @@ function Navbar() {
   const { state } = useContext(AppContext);
   const { cart } = state;
   
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const progress = `${(totalScroll / windowHeight) * 100}%`;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   const styles = {
     number: {
       position: 'absolute',
@@ -58,6 +76,9 @@ function Navbar() {
         boxShadow: `0px 0px 2px #fae6af`,
         backgroundColor: defaultB, 
         width:"100%", 
+        position: 'fixed',
+        top: 0, 
+        zIndex: 1000,
       }}>
       <FlexBetween className="navbar" padding="1rem 6%">
         <FlexBetween gap="1.75rem">
@@ -116,6 +137,14 @@ function Navbar() {
           </IconButton>
         </FlexBetween>
       </FlexBetween>
+      <div
+        className="scroll-progress"
+        style={{
+          width: scrollProgress,
+          height: '3px',
+          backgroundColor: primaryMain
+        }}
+      />
     </Box>
   )
 }
