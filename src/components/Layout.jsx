@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import useAnalytics from '../hooks/useAnalytics';
 import Offline from './Offline'
+import ScrollTopButton from './ScrollTopButton';
 
 function Layout({ children }) {
   useAnalytics();
@@ -36,6 +37,7 @@ function Layout({ children }) {
         </Grid>
       </Grid>
       <Grid item xs={12}>
+        <ScrollTopButton sx={{ m: 3 }}/>
         <Footer />
       </Grid>
     </Box>
@@ -49,6 +51,7 @@ function Layout({ children }) {
           <Offline />
         </Grid>
         <Grid item xs={12}>
+          <ScrollTopButton sx={{ m: 3 }}/>
           <Footer />
         </Grid>
       </Grid>
