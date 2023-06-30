@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
+import { motion } from 'framer-motion';
 import Product from './Product';
 import AppContext from '../../context/AppContext';
 import LazyLoading from '../../utils/LazyLoading';
@@ -11,15 +12,24 @@ function Products() {
   const handleAddToCart = (product) => {
     addToCart(product);
   }
+
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { delay: 0.5 } },
+  };
   
   return (
     <Box id="products">
-      <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
-        Our Products
-      </Typography>
-      <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 5 }}>
-        A wide selection of high-quality products just for you.
-      </Typography>
+      <motion.div variants={variants} initial="hidden" animate="visible">
+        <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
+          Our Products
+        </Typography>
+      </motion.div>
+      <motion.div variants={variants} initial="hidden" animate="visible">
+        <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 5 }}>
+          A wide selection of high-quality products just for you.
+        </Typography>
+      </motion.div>
       <Grid container sx={{ p: 4 }}>
         {products.map(product => (
           <Grid item key={product.id} xs={12} md={6} lg={4} sx={{ p: 3 }}>
