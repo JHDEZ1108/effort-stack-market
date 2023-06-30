@@ -66,6 +66,7 @@
     "react-ga": "^3.3.1",
     "react-helmet": "^6.1.0",
     "react-redux": "^8.0.5",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "react-svg": "^16.1.4",

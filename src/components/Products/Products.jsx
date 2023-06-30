@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import Product from './Product';
+import ProductCarousel from './ProductCarousel';
 import AppContext from '../../context/AppContext';
 import LazyLoading from '../../utils/LazyLoading';
 
@@ -13,20 +14,23 @@ function Products() {
     addToCart(product);
   }
 
-  const variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 0.5 } },
-  };
+  const titleVariants = {
+    hidden: { opacity: 0, y: -200 },
+    visible: { opacity: 1, y: 0 },
+  }
   
   return (
     <Box id="products">
-      <motion.div variants={variants} initial="hidden" animate="visible">
+      <motion.div
+        variants={titleVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{ ease: "easeOut", duration: 1 }}
+      >
         <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
           Our Products
         </Typography>
-      </motion.div>
-      <motion.div variants={variants} initial="hidden" animate="visible">
-        <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 5 }}>
+        <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 2 }}>
           A wide selection of high-quality products just for you.
         </Typography>
       </motion.div>
@@ -38,6 +42,21 @@ function Products() {
             </LazyLoading>
           </Grid>
         ))}
+        <Grid item xs={12} sx={{ mt: 5 }}>
+          <motion.div
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ ease: "easeOut", duration: 1 }}
+          >
+            <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4, fontWeight: 'bold' }}>
+              Featured Products
+            </Typography>
+          </motion.div>
+          <LazyLoading>
+            <ProductCarousel products={products} handleAddToCart={handleAddToCart}/>
+          </LazyLoading>
+        </Grid>
       </Grid>
     </Box>
   );
