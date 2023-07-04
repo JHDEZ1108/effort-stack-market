@@ -10,7 +10,7 @@ function Product({ product, handleAddToCart }) {
   const primaryLight = theme.palette.primary.light;
 
   return (
-    <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450, borderRadius: 2 }}>
+    <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450 }}>
       <motion.div
         initial={{ scale: 0.7, opacity: 0 }} 
         animate={{ scale: 1, opacity: 1 }}

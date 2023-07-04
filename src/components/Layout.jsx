@@ -33,7 +33,16 @@ function Layout({ children }) {
           <Navbar />
         </Grid>
         <Grid item xs={12}>
-          <Box sx={{ flexGrow: 1 }}>{children}</Box>
+          <Box 
+            sx={{ 
+              flexGrow: 1,
+
+              justifyContent: 'center',
+              alignItems: 'center' 
+            }}
+          >
+          {children}
+        </Box>
         </Grid>
       </Grid>
       <Grid item xs={12}>

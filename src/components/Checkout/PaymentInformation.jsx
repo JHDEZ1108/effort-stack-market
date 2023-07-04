@@ -87,7 +87,8 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
             sx={{
               backgroundColor: defaultA,
               minHeight: '100%',
-              p: 3
+              p: 3,
+              mt: 10
             }}
           >
             <Form>
@@ -97,6 +98,7 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                   maxWidth: 1000,
                   p: 3,
                   mx: 'auto',
+                  boxShadow: 1
                 }}
               >
                 <Box>

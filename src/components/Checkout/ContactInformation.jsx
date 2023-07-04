@@ -111,6 +111,7 @@ function ContactInformation(){
             sx={{
               backgroundColor: defaultA,
               minHeight: '100%',
+              mt: 13,
               p: 3
             }}
           >
@@ -121,6 +122,7 @@ function ContactInformation(){
                   maxWidth: 1000,
                   p: 3,
                   mx: 'auto',
+                  boxShadow: 1
                 }}
               >
                 <Box>

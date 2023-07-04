@@ -47,7 +47,7 @@ function Splash({ onExit }) {
         <Box
           sx={{
             height: '60vh', 
-            width: '40%', 
+            width: '60%', 
             position: 'relative',
             backgroundImage: `url(${heroImage})`,
             backgroundPosition: 'center',
@@ -55,6 +55,7 @@ function Splash({ onExit }) {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
+            mt: 10,
             alignItems: 'center',
             '::before': {
               content: '""',

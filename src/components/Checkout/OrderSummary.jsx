@@ -42,7 +42,8 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
         sx={{
           backgroundColor: defaultB,
           minHeight: '100%',
-          p: 3
+          p: 3,
+          mt: 5
         }}
       >
         <Box
