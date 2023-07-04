@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MetaData from '../components/MetaData';
 import Products from '../components/Products/Products';
 import Hero from '../components/Home/Hero';
+import Splash from './Splash';
 
 const meta = (
   <MetaData
@@ -13,12 +14,19 @@ const meta = (
 );
 
 function Home() {  
-  
+  const [splashVisible, setSplashVisible] = useState(true);
+
+  const handleExit = () => {
+    setSplashVisible(false);
+  };
+
   return (      
     <>
       {meta}
-      <Hero />
-      <Products />
+      {splashVisible ? <Splash onExit={handleExit} /> : <>
+        <Hero />
+        <Products />
+      </>}
     </>
   );
 }

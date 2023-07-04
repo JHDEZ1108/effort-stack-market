@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import { AnimatePresence } from 'framer-motion';
 
 import { themeSettings } from '../theme/theme';
 
@@ -17,7 +18,6 @@ import NotFound from '../containers/NotFound';
 import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState';
 
-
 function App() {
   const mode = useSelector((state) => state.ui.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
@@ -27,20 +27,22 @@ function App() {
   return (
     isEmpty > 0 ? (
       <AppContext.Provider value={initialState}>
-        <ThemeProvider theme={theme}> 
+        <ThemeProvider theme={theme}>
           <CssBaseline />
-            <BrowserRouter>
-              <Layout>
+          <BrowserRouter>
+            <Layout>
+              <AnimatePresence mode='wait'>
                 <Routes>
-                  <Route exact path="/" element={<Home />} />
-                  <Route exact path="/checkout" element={<Checkout />} />
-                  <Route exact path="/checkout/information" element={<Information />} />
-                  <Route exact path="/checkout/payment" element={<Payment />} />
-                  <Route exact path="/checkout/success" element={<Success />} />
-                  <Route element={<NotFound />} />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/checkout/information" element={<Information />} />
+                  <Route path="/checkout/payment" element={<Payment />} />
+                  <Route path="/checkout/success" element={<Success />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
-              </Layout>
-            </BrowserRouter>
+              </AnimatePresence>
+            </Layout>
+          </BrowserRouter>
         </ThemeProvider>
       </AppContext.Provider>
     ) : (<h1> Cargando.... </h1>)
@@ -48,4 +50,3 @@ function App() {
 }
 
 export default App;
-
