@@ -42,7 +42,7 @@ function Products() {
             </LazyLoading>
           </Grid>
         ))}
-        <Grid item xs={12} sx={{ mt: 5 }}>
+        <Grid item xs={12} sx={{ mt: 5, mb: 5 }}>
           <motion.div
             variants={titleVariants}
             initial="hidden"

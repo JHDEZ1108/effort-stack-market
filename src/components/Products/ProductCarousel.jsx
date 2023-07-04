@@ -1,7 +1,8 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
-import { Card, CardContent, CardMedia, Typography, Button, useTheme, GlobalStyles } from '@mui/material';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css'; 
+import { Card, CardContent, CardMedia, Typography, Button, useTheme, Box } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'; 
 
 function ProductCarousel({ products, handleAddToCart }) {
   const theme = useTheme();
@@ -10,60 +11,75 @@ function ProductCarousel({ products, handleAddToCart }) {
   const primaryMain = theme.palette.primary.main;
   const primaryLight = theme.palette.primary.light;
 
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
   return (
-    <>
-      <GlobalStyles
-        styles={{
-          '.carousel .control-dots .dot': {
-            backgroundColor: theme.palette.mode === 'light' ? primaryMain : 'white'
-          }
-        }}
-      />
+    <Box sx={{ position: 'relative', overflow: 'visible' }}>
       <Carousel
-        showArrows
+        responsive={responsive}
+        infinite
         autoPlay
-        infiniteLoop
-        showThumbs={false}
-        showStatus={false}
-        interval={3000}
-        transitionTime={500}
+        autoPlaySpeed={3000}
+        keyBoardControl
+        showDots={false} 
+        arrows={false}
       >
         {products.map((product) => (
-          <div key={product.id}>
-            <Card sx={{ backgroundColor: defaultB }}>
+          <Box key={product.id} sx={{ maxWidth: '400px', margin: 'auto'}}>
+            <Card sx={{ backgroundColor: defaultB, display: 'flex' }}>
               <CardMedia
                 component="img"
                 alt={product.attributes.title}
-                height="140"
+                height="200"
                 image={product.attributes.image.data[0].attributes.url}
+                sx={{ minWidth: 200, objectFit: 'cover' }} 
               />
-              <CardContent sx={{ backgroundColor: defaultA }}>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.attributes.title}
-                </Typography>
-                <Typography variant="subtitle1">{`$${product.attributes.price}`}</Typography>
-                <Button
-                  variant="contained"
-                  sx={{
-                    mb: 2,
-                    fontWeight: 'bold',
-                    backgroundColor: primaryMain,
-                    transition: 'transform .2s',
-                    '&:hover': {
-                      backgroundColor: primaryLight,
-                      transform: 'scale(1.1)',
-                    },
-                  }}
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Add to cart
-                </Button>
-              </CardContent>
+              <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: defaultA, flexGrow: 1 }}> {/* Agrega un Box para disponer los elementos verticalmente */}
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 'bold'}}>
+                    {product.attributes.title}
+                  </Typography>
+                  <Typography variant="subtitle1">{`$${product.attributes.price}`}</Typography>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      mt: 2,
+                      fontWeight: 'bold',
+                      backgroundColor: primaryMain,
+                      transition: 'transform .2s',
+                      '&:hover': {
+                        backgroundColor: primaryLight,
+                        transform: 'scale(1.1)',
+                      },
+                    }}
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    <ShoppingCartIcon />
+                  </Button>
+                </CardContent>
+              </Box>
             </Card>
-          </div>
+          </Box>
         ))}
       </Carousel>
-    </>
+    </Box>
   );
 }
 
