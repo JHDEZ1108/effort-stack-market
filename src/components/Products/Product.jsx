@@ -10,14 +10,14 @@ function Product({ product, handleAddToCart }) {
   const primaryLight = theme.palette.primary.light;
 
   return (
-    <motion.div
-      initial={{ scale: 0.7, opacity: 0 }} 
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.05 }}
-      style={{ cursor: 'pointer' }} 
-    >
-      <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450, }}>
+    <Grid container alignItems="center" sx={{ backgroundColor: defaultB, maxWidth: 450, borderRadius: 2 }}>
+      <motion.div
+        initial={{ scale: 0.7, opacity: 0 }} 
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgba(0,0,0,0.2)" }} // Añadimos boxShadow aquí
+        style={{ cursor: 'pointer' }} 
+      >
         <Grid item xs={12}>
           <Box sx={{ maxHeight: 300, display: 'flex', justifyContent: 'center' }}>
             <img
@@ -61,10 +61,9 @@ function Product({ product, handleAddToCart }) {
             </Box>
           </Grid>
         </Grid>
-      </Grid>
-    </motion.div>
+      </motion.div>
+    </Grid>
   );
 }
 
 export default Product;
-
