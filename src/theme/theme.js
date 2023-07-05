@@ -103,32 +103,47 @@ export const themeSettings = (mode) => {
           }),
     },
     typography: {
-      fontFamily: ["Rubik", "sans-serif"].join(","),
-      fontSize: 12,
+      fontFamily: "Amatic SC, cursive",
+      fontSize: 16,
       h1: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 40,
+        fontSize: 64,
+        fontWeight: 700,
       },
       h2: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 32,
+        fontSize: 56,
+        fontWeight: 700,
       },
       h3: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 24,
+        fontSize: 48,
+        fontWeight: 700,
       },
       h4: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 20,
+        fontSize: 40,
+        fontWeight: 700,
       },
       h5: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 16,
+        fontSize: 32,
+        fontWeight: 700,
       },
       h6: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
-        fontSize: 14,
+        fontSize: 24,
+        fontWeight: 700,
       },
-    },
+      body1: {
+        fontFamily: "Poiret One, cursive",
+        fontSize: 20,
+        fontWeight: 400,
+      },
+      body2: {
+        fontFamily: "Poiret One, cursive",
+        fontSize: 16,
+        fontWeight: 400,
+      },
+      subtitle1: {
+        fontFamily: "Poiret One, cursive",
+        fontSize: 14,
+        fontWeight: 400,
+      },
+    },    
   };
 };
