@@ -122,7 +122,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                     )}
                     sx={{ mr: 3}}
                   />
-                  <ListItemSecondaryAction>
+                  <ListItemSecondaryAction sx={{ ml: 2, mt: 2}}>
                     <QuantityPicker
                       quantity={item.quantity || 1}
                       setQuantity={value => handleQuantityChange(item, value)}

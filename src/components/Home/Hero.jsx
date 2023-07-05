@@ -84,6 +84,7 @@ function Hero() {
               sx={{
                 mt: 2,
                 color: '#000',
+                fontSize: '27px',
                 fontWeight: 'bold',
                 backgroundColor: primaryMain,
                 transition: 'transform .2s',
