@@ -1,6 +1,6 @@
 {
-  "short_name": "ES market",
-  "name": "Effort Stack Market",
+  "short_name": "WL market",
+  "name": "Whitelabel Market",
   "icons": [
     {
       "src": "/assets/Logo_Final_144.png",
@@ -24,7 +24,7 @@
       "sizes": "512x512"
     }
   ],
-  "description": "Effort Stack Ecommerce",
+  "description": "WhiteLabel's Ecommerce",
   "start_url": "/",
   "scope": "/",
   "display": "minimal-ui",
