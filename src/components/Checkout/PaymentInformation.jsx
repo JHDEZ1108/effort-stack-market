@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Grid,
@@ -34,6 +34,11 @@ const paymentMethods = [
 ];
 
 function PaymentInformation({ cart, handleTotal, buyer }) {
+
+  const [paymentM, setPaymentMethod] = useState("visa");
+  const handleChange = (event) => {
+    setPaymentMethod(event.target.value);
+  };
   /* ---------- Theme configuration -----------*/
   const theme = useTheme();
   const defaultA = theme.palette.background.alt;
@@ -116,7 +121,9 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                         <Grid item xs={12}>
                           <RadioGroup
                             name="paymentMethod"
+                            value={paymentM}
                             sx={{ flexDirection: 'row' }}
+                            onChange={handleChange}
                           >
                             {paymentMethods.map((paymentMethod) => (
                               <FormControlLabel
@@ -132,60 +139,65 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                             ))}
                           </RadioGroup>
                         </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                        >
-                          <FormikField
-                            required
-                            fullWidth
-                            label="Name on Card"
-                            name="cardOwner"
-                          />
-                        </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                        >
-                          <FormikField
-                            required
-                            fullWidth
-                            label="Card Number"
-                            name="cardNumber"
-                          />
-                        </Grid>
-                        <Grid
-                          item
-                          sm={6}
-                          xs={12}
-                        >
-                          <FormikField
-                            required
-                            fullWidth
-                            label="Expire Date"
-                            name="cardExpirationDate"
-                            placeholder="MM/YY"
-                          />
-                        </Grid>
-                        <Grid
-                          item
-                          sm={6}
-                          xs={12}
-                        >
-                          <FormikField
-                            required
-                            fullWidth
-                            label="Security Code"
-                            name="cardSecurityCode"
-                          />
-                        </Grid>
-                      </ Grid>
-                      <Grid
-                          item
-                          sx={{mt: 3}}
-                          xs={12}
-                      >
-                        <PayPalCheckoutButton cart={cart} handleTotal={handleTotal} buyer={buyer}/>
+                        {paymentM === 'visa' ? (
+                          <>
+                            <Grid
+                              item
+                              xs={12}
+                            >
+                              <FormikField
+                                required
+                                fullWidth
+                                label="Name on Card"
+                                name="cardOwner"
+                              />
+                            </Grid>
+                            <Grid
+                              item
+                              xs={12}
+                            >
+                              <FormikField
+                                required
+                                fullWidth
+                                label="Card Number"
+                                name="cardNumber"
+                              />
+                            </Grid>
+                            <Grid
+                              item
+                              sm={6}
+                              xs={12}
+                            >
+                              <FormikField
+                                required
+                                fullWidth
+                                label="Expire Date"
+                                name="cardExpirationDate"
+                                placeholder="MM/YY"
+                              />
+                            </Grid>
+                            <Grid
+                              item
+                              sm={6}
+                              xs={12}
+                            >
+                              <FormikField
+                                required
+                                fullWidth
+                                label="Security Code"
+                                name="cardSecurityCode"
+                              />
+                            </Grid>
+                          </>
+                        ) : (
+                          <Grid
+                            item
+                            sx={{mt: 3}}
+                            xs={12}
+                          >
+                            <PayPalCheckoutButton cart={cart} handleTotal={handleTotal} buyer={buyer}/>
+                          </Grid>
+                        )}
                       </Grid>
                     </Grid>
                     <Grid xs={12} sm={6} item>
