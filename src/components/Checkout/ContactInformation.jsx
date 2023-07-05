@@ -45,33 +45,34 @@ function ContactInformation(){
   /* ---------- Form validation Schemas -----------*/
   const ContactInformationSchema = Yup.object().shape({
     email: Yup.string()
-    .lowercase()
-    .email('Must be a valid email!')
-    .notOneOf(emailAddresses, 'Email already taken!')
-    .required('You need to add an email!'),
+      .lowercase()
+      .email('Must be a valid email!')
+      .notOneOf(emailAddresses, 'Email already taken!')
+      .required('You need to add an email!'),
     firstName: Yup.string()
-    .min(2, 'Too short to be a name!')
-    .matches(/^[\p{L}]+$/u, 'First name cannot contain numbers')
-    .required('You need to add a name!'),
+      .min(2, 'Too short to be a name!')
+      .matches(/^[\p{L}\s]+$/u, 'First name can only contain letters and spaces')
+      .required('You need to add a name!'),
     lastName: Yup.string()
-    .min(2, 'Too short to be a last name!')
-    .matches(/^[\p{L}]+$/u, 'Last name cannot contain numbers')
-    .required('You need to add a last name!'),
+      .min(2, 'Too short to be a last name!')
+      .matches(/^[\p{L}\s]+$/u, 'Last name can only contain letters and spaces')
+      .required('You need to add a last name!'),
     address: Yup.string()
-    .min(5, 'Too short to be an address!')
-    .required('You need to add an address!'),
+      .min(5, 'Too short to be an address!')
+      .required('You need to add an address!'),
     optionalAddress: Yup.string()
-    .min(5, 'Too short to be an address!'),
-    zipCode: Yup.string()
-    .matches(/^[0-9]{5}(?:-[0-9]{4})?$/, 'Invalid zip code'),
+      .min(5, 'Too short to be an address!'),
+      zipCode: Yup.string()
+      .matches(/^(?:\d{4,5}|\d{4,5}-\d{4}|\d{2}-\d{3}-\d{2,4}|\w{2,4}\s?\d{2,4})$/, 'Invalid zip code'),    
     phoneNumber: Yup.string()
-    .matches(/^\+(?:[0-9] ?){6,14}[0-9]$/, 'Invalid phone number'),
+      .matches(/^\+(?:[0-9] ?){6,14}[0-9]$/, 'Invalid phone number'),
     country: Yup.string()
-    .min(2, 'Too short to be a country name!')
-    .required('You need to add a country!'),
+      .min(2, 'Too short to be a country name!')
+      .required('You need to add a country!'),
     city: Yup.string()
-    .matches(/^[\p{L}]+(?:[\s-][\p{L}]+)*$/u, 'Invalid city name')
+      .matches(/^[\p{L}]+(?:[\s-][\p{L}]+)*$/u, 'Invalid city name')
   });
+  
   
   const { addToBuyer } = useContext(AppContext);
   const form = useRef(null);
