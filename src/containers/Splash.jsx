@@ -57,6 +57,8 @@ function Splash({ onExit }) {
             justifyContent: 'center',
             mt: 10,
             alignItems: 'center',
+            borderRadius: '5px', 
+            boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)',
             '::before': {
               content: '""',
               position: 'absolute',
@@ -64,32 +66,34 @@ function Splash({ onExit }) {
               right: 0,
               bottom: 0,
               left: 0,
+              borderRadius: '5px', 
+              boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)',
               backgroundColor: 'rgba(0, 0, 0, 0.5)',
             },
           }}
         >
-          <Button variant="outlined" onClick={onExit}>
+          <Button variant="outlined" onClick={onExit} sx={{ fontSize: '25px'}}>
             Click Here
           </Button>
           <Box
             sx={{
               position: 'absolute',
-              bottom: '-45px',
+              bottom: '-55px',
               left: 0,
               padding: '16px',
             }}
           >
-            <Typography variant="overline" sx={{ color: 'text.primary' }}>Powered by</Typography>
+            <Typography variant="h6" sx={{ color: 'text.primary' }}>Powered by</Typography>
           </Box>
           <Box
             sx={{
               position: 'absolute',
-              bottom: '-45px',
+              bottom: '-55px',
               right: 0,
               padding: '16px',
             }}
           >
-            <Typography variant="overline" sx={{ color: 'text.primary' }}>Effort Stack</Typography>
+            <Typography variant="h6" sx={{ color: 'text.primary' }}>Effort Stack</Typography>
           </Box>
         </Box>
       </Box>

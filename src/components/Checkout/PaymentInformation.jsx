@@ -206,10 +206,10 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                         </ Grid>
                         <Grid item xs={12}>
                           <List sx={{ ml: 3, mr: 3 }}>
-                            {cart.map((product) => (
+                            {cart.map(product => (
                               <ListItem
                                 disableGutters
-                                key={product.id}
+                                key={product.attributes.id}
                               >
                                 <Grid container>
                                   <Grid xs={6} sm={6} item>
@@ -217,9 +217,9 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                                       primary={(
                                         <Typography
                                           sx={{ fontWeight: 'fontWeightBold' }}
-                                          variant="subtitle2"
+                                          variant="subtitle1"
                                         >
-                                          {product.title}
+                                          {product.attributes.title}
                                         </Typography>
                                       )}
                                     />
@@ -229,9 +229,9 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                                       secondary={(
                                         <Typography
                                           color="textSecondary"
-                                          variant="body1"
+                                          variant="subtitle1"
                                         >
-                                          {product.quantity}x ${numeral(product.price).format('0.00')}
+                                          {product.quantity}x ${numeral(product.attributes.price).format('0.00')}
                                         </Typography>
                                       )}
                                     />
@@ -247,10 +247,10 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                                 mt: 2
                               }}
                             >
-                              <Typography variant="subtitle2">
+                              <Typography variant="subtitle1">
                                 Subtotal
                               </Typography>
-                              <Typography variant="subtitle2">
+                              <Typography variant="subtitle1">
                                 $
                                 {numeral(handleTotal()).format('0.00')}
                               </Typography>
@@ -262,10 +262,10 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                                 mt: 2
                               }}
                             >
-                              <Typography variant="subtitle2">
+                              <Typography variant="subtitle1">
                                 Shipping Tax
                               </Typography>
-                              <Typography variant="subtitle2">
+                              <Typography variant="subtitle1">
                                 $
                                 {numeral(3).format('0.00')}
                               </Typography>
@@ -277,10 +277,10 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                                 justifyContent: 'space-between'
                               }}
                             >
-                              <Typography variant="subtitle2">
+                              <Typography variant="body1">
                                 Total
                               </Typography>
-                              <Typography variant="subtitle2">
+                              <Typography variant="body1">
                                 $
                                 {numeral(handleTotal() + 3).format('0.00')}
                               </Typography>
@@ -302,7 +302,7 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                       to="/checkout/success"
                       type="submit"
                       variant="contained"
-                      sx={{ width: '100%', height: '50px', fontSize: '15px'}}
+                      sx={{ width: '100%', height: '50px', fontSize: '25px'}}
                       disabled={!dirty || !isValid}
                       >
                       Pay now
@@ -320,7 +320,7 @@ function PaymentInformation({ cart, handleTotal, buyer }) {
                       to="/checkout/information"
                       type="submit"
                       variant="outlined"
-                      sx={{ width: '100%', height: '50px', fontSize: '15px'}}
+                      sx={{ width: '100%', height: '50px', fontSize: '25px'}}
                       >
                       Return to shipping
                     </Button>

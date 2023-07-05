@@ -53,7 +53,7 @@ function Footer() {
         </Grid>
       ))}
       <Grid item>
-        <Typography variant="body1" sx={{ fontSize: '0.8rem', transition: 'color 500ms' }}>
+        <Typography variant="body1" sx={{ transition: 'color 500ms' }}>
           Made by{' '}
           <Link href="https://github.com/JHDEZ1108" target="_blank" rel="noopener noreferrer" underline="none" sx={{ color: 'blue.600', textDecorationOffset: '2px', transition: 'color 500ms', '&:hover': { color: 'blue.400' } }}>
             Josué Hernández

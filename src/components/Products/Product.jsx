@@ -15,7 +15,7 @@ function Product({ product, handleAddToCart }) {
         initial={{ scale: 0.7, opacity: 0 }} 
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgba(0,0,0,0.2)" }} // Añadimos boxShadow aquí
+        whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgba(0,0,0,0.2)" }}
         style={{ cursor: 'pointer' }} 
       >
         <Grid item xs={12}>
@@ -36,7 +36,7 @@ function Product({ product, handleAddToCart }) {
                 </Typography>
               </Grid>
               <Grid item sx={{ pt: 1 }}>
-                <Typography variant="subtitle1">{`$${product.attributes.price}`}</Typography>
+                <Typography variant="body1">{`$${product.attributes.price}`}</Typography>
               </Grid>
               <Grid item sx={{ pt: 2 }}>
                 <Typography variant="body1">{product.attributes.description}</Typography>

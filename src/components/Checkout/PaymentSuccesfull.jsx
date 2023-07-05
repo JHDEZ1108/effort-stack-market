@@ -88,15 +88,15 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                       {cart.map((product) => (
                         <ListItem
                           disableGutters
-                          key={product.id}
+                          key={product.attributes.id}
                         >
                           <Grid container>
                             <Grid xs={6} sm={6} item>
                               <ListItemText
                                 primary={(
                                   <Typography
-                                    sx={{ fontWeight: 'fontWeightBold' }}
-                                    variant="subtitle2"
+                                    sx={{ fontWeight: 'bold' }}
+                                    variant="subtitle1"
                                   >
                                     {product.attributes.title}
                                   </Typography>
@@ -126,10 +126,10 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                           mt: 2
                         }}
                       >
-                        <Typography variant="subtitle2">
+                        <Typography variant="subtitle1">
                           Subtotal
                         </Typography>
-                        <Typography variant="subtitle2">
+                        <Typography variant="subtitle1">
                           $
                           {numeral(handleTotal()).format('0.00')}
                         </Typography>
@@ -141,10 +141,10 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                           mt: 2
                         }}
                       >
-                        <Typography variant="subtitle2">
+                        <Typography variant="subtitle1">
                           Shipping Tax
                         </Typography>
-                        <Typography variant="subtitle2">
+                        <Typography variant="subtitle1">
                           $
                           {numeral(3).format('0.00')}
                         </Typography>
@@ -156,10 +156,10 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                           justifyContent: 'space-between'
                         }}
                       >
-                        <Typography variant="subtitle2">
+                        <Typography variant="body1">
                           Total
                         </Typography>
-                        <Typography variant="subtitle2">
+                        <Typography variant="body1">
                           $
                           {numeral(handleTotal() + 3).format('0.00')}
                         </Typography>
@@ -187,7 +187,7 @@ function PaymentSuccesfull({ cart, handleTotal, firstName, lastName }){
                 to="/"
                 type="submit"
                 variant="contained"
-                sx={{ width: '100%', height: '50px', fontSize: '15px'}}
+                sx={{ width: '100%', height: '50px', fontSize: '25px'}}
                 >
                 Homepage
               </Button>

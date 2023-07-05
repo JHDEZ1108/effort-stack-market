@@ -30,7 +30,7 @@ function Products() {
         <Typography variant="h2" align="center" gutterBottom sx={{ mt: 5, mb: 2, fontWeight: 'bold' }}>
           Our Products
         </Typography>
-        <Typography variant="subtitle1" align="center" gutterBottom sx={{ mb: 2 }}>
+        <Typography variant="body1" align="center" gutterBottom sx={{ mb: 2 }}>
           A wide selection of high-quality products just for you.
         </Typography>
       </motion.div>
@@ -49,8 +49,11 @@ function Products() {
             animate="visible"
             transition={{ ease: "easeOut", duration: 1 }}
           >
-            <Typography variant="h2" align="center" gutterBottom sx={{ mb: 4, fontWeight: 'bold' }}>
+            <Typography variant="h2" align="center" gutterBottom sx={{ mb: 2, fontWeight: 'bold' }}>
               Featured Products
+            </Typography>
+            <Typography variant="body1" align="center" gutterBottom sx={{ mb: 5 }}>
+              Explore our carefully selected featured products.
             </Typography>
           </motion.div>
           <LazyLoading>

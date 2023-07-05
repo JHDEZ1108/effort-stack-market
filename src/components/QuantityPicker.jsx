@@ -27,7 +27,7 @@ function QuantityPicker({ quantity, setQuantity }) {
         <IconButton onClick={handleDecrease} sx={{ mr:0.5}}>
           <Remove sx={{ fontSize: "small" }} />
         </IconButton>
-        <Typography variant="h5">{quantity}</Typography>
+        <Typography variant="body1">{quantity}</Typography>
         <IconButton onClick={handleIncrease} sx={{ ml:0.5}}>
           <Add sx={{ fontSize: "small" }} />
         </IconButton>

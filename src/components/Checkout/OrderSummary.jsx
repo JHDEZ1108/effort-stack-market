@@ -105,7 +105,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                     primary={(
                       <Typography
                         sx={{ fontWeight: 'fontWeightBold' }}
-                        variant="subtitle2"
+                        variant="subtitle1"
                       >
                         {item.attributes.title}
                       </Typography>
@@ -178,10 +178,10 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                 mt: 2
               }}
             >
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle1">
                 Subtotal
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="body1">
                 $
                 {numeral(handleTotal()).format('0.00')}
               </Typography>
@@ -193,10 +193,10 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                 mt: 2
               }}
             >
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle1">
                 Shipping Tax
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="body1">
                 $
                 {numeral(3).format('0.00')}
               </Typography>
@@ -208,10 +208,10 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
                 justifyContent: 'space-between'
               }}
             >
-              <Typography variant="subtitle2">
+              <Typography variant="body1">
                 Total
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="body1">
                 $
                 {numeral(handleTotal() + 3).format('0.00')}
               </Typography>
@@ -231,7 +231,7 @@ function OrderSummary({ cart, handleRemove, handleQuantityChange, handleTotal })
               sx={{
                 width: '100%',
                 height: '50px',
-                fontSize: '15px',
+                fontSize: '25px',
                 backgroundColor: primaryMain,
                 transition: 'transform .2s',
                 textDecoration: 'none',

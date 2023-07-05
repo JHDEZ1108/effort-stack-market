@@ -60,7 +60,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
               Welcome to Our Clothing Store
             </Typography>
           </motion.div>
@@ -69,7 +69,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }} // Añadimos un delay para que aparezca después del título
           >
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h4" gutterBottom>
               The finest apparel for every occasion
             </Typography>
           </motion.div>

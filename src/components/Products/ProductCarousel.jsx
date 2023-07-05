@@ -47,7 +47,7 @@ function ProductCarousel({ products, handleAddToCart }) {
               <CardMedia
                 component="img"
                 alt={product.attributes.title}
-                height="200"
+                height="250"
                 image={product.attributes.image.data[0].attributes.url}
                 sx={{ minWidth: 200, objectFit: 'cover' }} 
               />
